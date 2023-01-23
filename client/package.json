@@ -38,6 +38,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:production": "env-cmd -f .env.production craco build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -60,7 +61,9 @@
     ]
   },
   "devDependencies": {
+    "@craco/craco": "^7.0.0",
     "@iconify/react": "^4.0.1",
-    "@types/styled-components": "^5.1.26"
+    "@types/styled-components": "^5.1.26",
+    "env-cmd": "^10.1.0"
   }
 }

@@ -75,11 +75,18 @@ function Home()  {
                 <p className="pct subtitlefs font-weight-bold font-gray">JOIN THE COMMUNITY</p>
                 <div className="container dots-container">
                   <div className="column">
-                    <div className="col-sm flex-center justify-content-center mb2">
+                    <div className="col-sm flex-row-spacearound mb2">
                       <a href="https://vtscc.org/" target="_blank">
                         <img
                           src="https://res.cloudinary.com/dba8ifej6/image/upload/v1666921297/vermont-logo_bujth4.png"
                           height="128px"
+                          className="community_img"
+                        />
+                      </a>
+                      <a href="https://hermesus.com/" target="_blank">
+                        <img
+                          src="https://res.cloudinary.com/dba8ifej6/image/upload/v1674476831/hermesus_logo_lyjokt.svg"
+                          width="240px"
                           className="community_img"
                         />
                       </a>
@@ -92,12 +99,12 @@ function Home()  {
                         className="community_img"
                       />
                       <div className="width50">
-                        <p className="font-green">"The handsome Pappa Flammy of the world famous Flammable Maths channel is, with loss of generality. shown here."</p>
+                        <p className="font-green">"The handsome Pappa Flammy of <a href="https://www.youtube.com/watch?v=8oOS7uGY4nk" target="_blank">Flammable Maths fame.</a>"</p>
                       </div>
-                      <div className="link_container width70">
+                      {/* <div className="link_container width70">
                         <a href="https://www.youtube.com/channel/UCtAIs1VCQrymlAnw3mGonhw" className="font-green" target="_blank">Flammable Maths</a>
                         <a href="https://www.youtube.com/channel/UCnyZe3jFb27omDvOlR5BhZA" className="font-green" target="_blank">Flammable Math 2</a>
-                      </div>
+                      </div> */}
 
                       {/* <div className="link_container width70">
                         <a href="/swap" className="font-green">SWAP</a>

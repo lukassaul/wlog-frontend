@@ -1,14 +1,11 @@
 import axios from 'axios';
 
 export const GetLogAddressAPI = async () => {
-    const url = 'http://38.242.245.144:3001/transaction/generate_address'
+    const url = `${process.env.REACT_APP_BASE_URL}/transaction/generate_address`
     try {
       return axios({
         method: 'GET',
         url: url,
-        // headers: {
-        //   'Content-Type': 'application/json',
-        // },
       })
         .then(res => res)
         .catch(err =>

@@ -47,7 +47,7 @@ function Header() {
                         <div style={{display: 'flex', alignItems: 'center', gap: '.5em'}}>
                             <img src="/wlog_logo.png" alt="Wlog logo"/> WLOG
                         </div>
-                        <p>Wrapped Woodcoin on Ethereum</p>
+                        <p>Wrapped Polygonal Logs</p>
                     </div>
                 </NavLogo>
                 <MobileIcon onClick={handleClick}>
