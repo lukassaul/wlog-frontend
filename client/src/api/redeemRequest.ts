@@ -9,7 +9,7 @@ export interface RedeemRequestProps {
 }
 
 export const RedeemRequestAPI = async (props: RedeemRequestProps) => {
-    const url = 'http://localhost:3000/transaction/redeem_request'
+    const url = 'http://38.242.245.144:3001/transaction/redeem_request'
     const data = props
     try {
       return axios({

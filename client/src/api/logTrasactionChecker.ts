@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const CheckLogTransactionAPI = async (hash:string) => {
-    const url = `http://localhost:3000/transaction/txid_check/${hash}`
+    const url = `http://38.242.245.144:3001/transaction/txid_check/${hash}`
     
     try {
       return axios({

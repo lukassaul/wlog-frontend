@@ -8,7 +8,7 @@ export interface SwapRequestProps {
 }
 
 export const SwapRequestAPI = async (props: SwapRequestProps) => {
-    const url = 'http://localhost:3000/transaction/swap_request'
+    const url = 'http://38.242.245.144:3001/transaction/swap_request'
     const data = props
     try {
       return axios({

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const GetLogAddressAPI = async () => {
-    const url = 'http://localhost:3000/transaction/generate_address'
+    const url = 'http://38.242.245.144:3001/transaction/generate_address'
     try {
       return axios({
         method: 'GET',
