@@ -16,7 +16,16 @@ export function useTotalSupply() {
         args: []
     }) ?? {}
     return value?.[0];
-} 
+}
+
+export function useTotalMinted() {
+    const { value, error }: any = useCall({
+        contract: ContractInstance,
+        method: 'totalMinted',
+        args: []
+    }) ?? {}
+    return value?.[0];
+}
 
 export function useGetAdmin() {
     const { value, error }: any = useCall({
@@ -25,7 +34,7 @@ export function useGetAdmin() {
         args: []
     }) ?? {}
     return value;
-} 
+}
 
 export function useDeposit() {
     const { state, send } = useContractFunction(ContractInstance, 'mint', {});
@@ -37,7 +46,12 @@ export function useWithdraw() {
     return { state, send };
 }
 
-export function useContractMethod(methodName: string) {
-    const { state, send } = useContractFunction(ContractInstance, methodName, {});
+export function useTransfer() {
+    const { state, send} = useContractFunction(ContractInstance, 'transfer', {});
     return { state, send };
+}
+
+export function useContractMethod(methodName: string) {
+    const { state, send, events, resetState } = useContractFunction(ContractInstance, methodName, {});
+    return { state, send, events, resetState };
 }
