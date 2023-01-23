@@ -9,7 +9,7 @@ export interface RedeemRequestProps {
 }
 
 export const RedeemRequestAPI = async (props: RedeemRequestProps) => {
-    const url = 'http://38.242.245.144:3001/transaction/redeem_request'
+    const url = `${process.env.REACT_APP_BASE_URL}/transaction/redeem_request`
     const data = props
     try {
       return axios({

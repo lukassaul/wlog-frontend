@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 export const CheckLogTransactionAPI = async (hash:string) => {
-    const url = `http://38.242.245.144:3001/transaction/txid_check/${hash}`
-    
+    const url = `${process.env.REACT_APP_BASE_URL}/transaction/txid_check/${hash}`
+
     try {
       return axios({
         method: 'GET',
