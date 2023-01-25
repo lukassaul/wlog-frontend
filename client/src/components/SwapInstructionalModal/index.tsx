@@ -14,12 +14,12 @@ function SwapInstructionalModal(props: any) {
         <Modal.Header closeButton>
         </Modal.Header>
         <Modal.Body>
-            <div className="pv2">
+            <div className="pv0h1">
                 <ul>
                     <li>
                         <span className="cyanbg">1</span>Send Woodcoin to the address shown or scan the QR code.
                         <div>
-                            <div className="flex-center-css mv1 minHeight190">
+                            <div className="flex-center-css minHeight190">
                                 <div style={{ height: "auto", margin: "0 auto", maxWidth: 94, width: "100%" }}>
                                     <QRCode
                                         size={256}
@@ -36,7 +36,7 @@ function SwapInstructionalModal(props: any) {
                     <li>
                         <span className="purplebg">2</span>Fill up Transaction ID, Wlog Address and Amount input field.
                         <div>
-                            <div className="flex-center-css mv1 minHeight190 g1">
+                            <div className="flex-center-css minHeight190 g1">
                                 <div className="instructional-input">Transaction ID</div>
                                 <div className="instructional-input">Wlog Address</div>
                                 <div className="instructional-input">Amount</div>

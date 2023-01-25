@@ -4,8 +4,6 @@ import { RootState } from "../../app/store";
 
 function Home()  {
 
-  
-  
   return(
     <div className="maincontainer">
       <div className="dc">
@@ -32,7 +30,7 @@ function Home()  {
 
               <p className="pct subtitlefs font-weight-bold text-white">PROOF OF ASSETS</p>
 
-              <div className="d-flex container-br assets_container mv2h1 pv2h1 font-white">
+              <div className="d-flex container-br darkgreen_container mv2h1 pv2h1 font-white">
                 <div className="flex-fill p-2">
                   <p className="subtitlefs font-weight-bold">Network</p>
                   <div>
@@ -70,54 +68,103 @@ function Home()  {
                 </table>
               </div>
 
-
-              <div className="pv4h1">
-                <p className="pct subtitlefs font-weight-bold font-gray">JOIN THE COMMUNITY</p>
-                <div className="container dots-container">
-                  <div className="column">
-                    <div className="col-sm flex-row-spacearound mb2">
-                      <a href="https://vtscc.org/" target="_blank">
-                        <img
-                          src="https://res.cloudinary.com/dba8ifej6/image/upload/v1666921297/vermont-logo_bujth4.png"
-                          height="128px"
-                          className="community_img"
-                        />
-                      </a>
-                      <a href="https://hermesus.com/" target="_blank">
-                        <img
-                          src="https://res.cloudinary.com/dba8ifej6/image/upload/v1674476831/hermesus_logo_lyjokt.svg"
-                          width="240px"
-                          className="community_img"
-                        />
-                      </a>
-                    </div>
-                    <div className="col-sm flex-center-col g2">
-                      <img
-                        src="/papa_flammy.png"
-                        width="320px"
-                        height="auto"
-                        className="community_img"
-                      />
-                      <div className="width50">
-                        <p className="font-green">"The handsome Pappa Flammy of <a href="https://www.youtube.com/watch?v=8oOS7uGY4nk" target="_blank">Flammable Maths fame.</a>"</p>
-                      </div>
-                      {/* <div className="link_container width70">
-                        <a href="https://www.youtube.com/channel/UCtAIs1VCQrymlAnw3mGonhw" className="font-green" target="_blank">Flammable Maths</a>
-                        <a href="https://www.youtube.com/channel/UCnyZe3jFb27omDvOlR5BhZA" className="font-green" target="_blank">Flammable Math 2</a>
-                      </div> */}
-
-                      {/* <div className="link_container width70">
-                        <a href="/swap" className="font-green">SWAP</a>
-                        <a href="/redeem" className="font-green">REDEEM</a>
-                      </div> */}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="dc">
+      {process.env.REACT_APP_THEME === "PURPLE" ?
+        <div className="wood_section">
+            <div className="width70 d-flex flex-column justify-content-center">
+                <div>
+                  <p className="pct subtitlefs font-weight-bold font-white">JOIN THE COMMUNITY</p>
+                  <div className="container">
+                    <div className="column">
+                      <div className="col-sm flex-row-spacearound mb2 g2">
+                        <div className="purple_gradient w25h280 flex-center-col g2">
+                          <a href="https://vtscc.org/" target="_blank">
+                            <img
+                              src="https://res.cloudinary.com/dba8ifej6/image/upload/v1674616586/vermont_logo_ohqypx.png"
+                              height="128px"
+                              className="community_img"
+                            />
+                          </a>
+                        </div>
+                        <div className="purple_gradient w35h320 flex-center-col g2">
+                          <img
+                            src="/papa_flammy.png"
+                            width="320px"
+                            height="auto"
+                            className="community_img"
+                          />
+                          <div>
+                            <p className="font-white">"The handsome Pappa Flammy of <a href="https://www.youtube.com/watch?v=8oOS7uGY4nk" className="font-white" target="_blank">Flammable Maths fame.</a>"</p>
+                          </div>
+                        </div>
+                        <div className="purple_gradient w25h280 flex-center-col g2">
+                          <a href="https://hermesus.com/" target="_blank">
+                            <img
+                              src="https://res.cloudinary.com/dba8ifej6/image/upload/v1674476831/hermesus_logo_lyjokt.svg"
+                              width="240px"
+                              className="community_img"
+                            />
+                            <p className="font-white">Cryptocurrency Trading Platform With Custodial Services</p>
+                          </a>
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        :
+        <div className="dark_green_section">
+            <div className="width70 d-flex flex-column justify-content-center">
+                <div>
+                  <p className="pct subtitlefs font-weight-bold font-white">JOIN THE COMMUNITY</p>
+                  <div className="container">
+                    <div className="column">
+                      <div className="col-sm flex-row-spacearound mb2 g2">
+                        <div className="green_gradient w25h280 flex-center-col g2">
+                          <a href="https://vtscc.org/" target="_blank">
+                            <img
+                              src="https://res.cloudinary.com/dba8ifej6/image/upload/v1674620116/vermont_logo_white_vmdpcb.png"
+                              height="128px"
+                              className="community_img"
+                            />
+                          </a>
+                        </div>
+                        <div className="green_gradient w35h320 flex-center-col g2">
+                          <img
+                            src="/papa_flammy.png"
+                            width="320px"
+                            height="auto"
+                            className="community_img"
+                          />
+                          <div>
+                            <p className="font-white">"The handsome Pappa Flammy of <a href="https://www.youtube.com/watch?v=8oOS7uGY4nk" className="font-white" target="_blank">Flammable Maths fame.</a>"</p>
+                          </div>
+                        </div>
+                        <div className="green_gradient w25h280 flex-center-col g2">
+                          <a href="https://hermesus.com/" target="_blank" style={{ textDecoration: 'none'}}>
+                            <img
+                              src="https://res.cloudinary.com/dba8ifej6/image/upload/v1674476831/hermesus_logo_lyjokt.svg"
+                              width="240px"
+                              className="community_img"
+                            />
+                            <p className="font-white mt1">Cryptocurrency Trading Platform With Custodial Services</p>
+                          </a>
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+      }
       </div>
 
       <div className="footer bg-darkgreen">

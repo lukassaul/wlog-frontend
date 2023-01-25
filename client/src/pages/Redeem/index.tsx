@@ -70,7 +70,7 @@ function Redeem() {
                             <p onClick={() => setModalShow(true)} style={{cursor: 'pointer', color: '#3D766C', textAlign: 'left'}}>
                                 Show Redeem instructional modal
                             </p>
-                            <button onClick={clearStorage}> Clear Storage</button>
+                            {/* <button onClick={clearStorage}> Clear Storage</button> */}
 
                             <RedeemInstructionalModal
                                 show={modalShow}

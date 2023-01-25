@@ -22,7 +22,7 @@ import Button from '../Button'
 import { BigNumber } from "ethers"
 import { useSelector, useDispatch } from "react-redux"
 import { RootState, AppDispatch } from "../../app/store"
-import { redeemRequest } from "../../features/redeemSlice"
+import { redeemRequest, clearLogState } from "../../features/redeemSlice"
 
 function RedeemForm(props: any) {
 
@@ -63,7 +63,7 @@ function RedeemForm(props: any) {
         setBurnStatus(stat)
         if(stat === "Exception") resetBurnState()
         if(stat === "PendingSignature") setStatuseMessage("Pending signature ...")
-        if(stat === "Mining") setStatuseMessage("Burning Wlog ...")
+        if(stat === "Mining") setStatuseMessage("Transferring Wlog ...")
         if(stat === "Success") {
             setStatuseMessage("Submitting redeem request to api ...")
             if (burnState.receipt) {
@@ -98,6 +98,10 @@ function RedeemForm(props: any) {
     }
 
     function validate() {
+
+        // Clear burn state, esp success and error message
+        dispatch(clearLogState())
+
         // Check if receiving address and amount is submitted
         if (!receivingAddress && !amount) {
             setAddressValidatorError("Receiving address is required")
