@@ -14,7 +14,7 @@ function RedeemInstructionalModal(props: any) {
         <Modal.Header closeButton>
         </Modal.Header>
         <Modal.Body>
-            <div className="pv2">
+            <div className="pv0h1">
                 <ul>
                     <li>
                         <span className="cyanbg">1</span>Check Wallet connection

@@ -63,7 +63,7 @@ function Swap() {
                             <p onClick={() => setModalShow(true)} style={{cursor: 'pointer', color: '#3D766C', textAlign: 'left'}}>
                                 Show Swap instructional modal
                             </p>
-                            <button onClick={clearStorage}> Clear Storage</button>
+                            {/* <p onClick={clearStorage}> Clear Storage</p> */}
 
                             <SwapInstructionalModal
                                 show={modalShow}
