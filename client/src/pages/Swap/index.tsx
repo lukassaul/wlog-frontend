@@ -12,10 +12,10 @@ function Swap() {
     const [logAddress, setLogAddress] = useState(null);
     const [checked, setIsChecked] = useState(0);
 
-    const handleDontShowCheckbox = (e: any) => {
-        setIsChecked(e.target.checked);
-        localStorage.setItem("hide_swap_instruction", e.target.checked);
-    };
+    // const handleDontShowCheckbox = (e: any) => {
+    //     setIsChecked(e.target.checked);
+    //     localStorage.setItem("hide_swap_instruction", e.target.checked);
+    // };
 
     /**
      * Call backend API to return woodcoin address
@@ -47,30 +47,56 @@ function Swap() {
 
 
     return (<>
-        <div className="dc">
-            <div className="dashboard-container">
-                <div className="wood-bg width100 d-flex flex-column justify-content-center">
+        <div className={process.env.REACT_APP_THEME === "PURPLE" ? "maincontainer flex-auto" : "maincontainer flex-auto"}>
+            <div className="dashboard-container  tree_rings_bg">
+                <div className="width100 d-flex flex-column justify-content-center align-items-center">
                     <div className="width70 d-flex flex-column justify-content-center">
-                        <div className="text-white pv4h1 dots-container justify-content-center">
-                            <p className="font-weight-bold titlefs text-center word-wrap">SWAP</p>
+                        <div className="text-white pv4h1 justify-content-center">
+                            <p className={process.env.REACT_APP_THEME === "PURPLE" ? 
+                                "font-weight-bold titlefs text-center purple_gradient_text" 
+                                : 
+                                "font-weight-bold titlefs text-center"}
+                            >
+                                SWAP
+                            </p>
                             <p className="font-weight-bold text-center word-wrap">WLOG contract address ({simpleContractAddress})</p>
                             <p className="font-weight-bold text-center word-wrap">Import WLOG token to your meta mask wallet</p>
+
                             <div className="d-flex flex-column justify-content-center align-items-center">
-                                <div className="desc-container">
-                                    {logAddress ? <SwapForm address={logAddress} />: null }
-                                </div>
+                                
+                                <p className={process.env.REACT_APP_THEME === "PURPLE" ? 
+                                    "font-weight-bold text-center purple_gradient_text xltitlefs" 
+                                    : 
+                                    "font-weight-bold text-center xltitlefs"}
+                                >
+                                    COMING SOON!
+                                </p>
+                                <p className="text-center text-white word-wrap">
+                                    Wlog/Matic trading pair is now available in <a href="https://www.sushi.com/swap" target="_blank">Sushiswap</a>
+                                </p>
                             </div>
-                            <p onClick={() => setModalShow(true)} style={{cursor: 'pointer', color: '#3D766C', textAlign: 'left'}}>
-                                Show Swap instructional modal
-                            </p>
+
+                            {/*
+                                Hide swap form in the meantime
+                            */}
+                            <div style={{display: 'none'}}>
+                                <div className="d-flex flex-column justify-content-center align-items-center">
+                                    <div className="desc-container">
+                                        {logAddress ? <SwapForm address={logAddress} />: null }
+                                    </div>
+                                </div>
+                                <p onClick={() => setModalShow(true)} style={{cursor: 'pointer', color: '#fff', textAlign: 'left'}}>
+                                    Show Swap instructional modal
+                                </p>
+                            </div>
                             {/* <p onClick={clearStorage}> Clear Storage</p> */}
 
-                            <SwapInstructionalModal
+                            {/*<SwapInstructionalModal
                                 show={modalShow}
                                 onHide={() => setModalShow(false)}
                                 address={logAddress}
                                 handleDontShowCheckbox={handleDontShowCheckbox}
-                            />
+                            />*/}
                         </div>
                     </div>
                 </div>

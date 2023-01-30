@@ -40,7 +40,7 @@ function Header() {
 
 
     return (
-        <Nav>
+        <Nav className={process.env.REACT_APP_THEME === "PURPLE" ? "black_gradient" : "green_bg"}>
             <NavbarContainer>
                 <NavLogo to='/'>
                     <div>

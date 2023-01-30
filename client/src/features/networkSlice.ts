@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+
 interface networkState {
-  network: string;
+  network: string | any;
 }
 
 const initialState: networkState = {
-    network: 'Polygon-mumbai'
+    network: "Polygon-mumbai"
 }
 
 export const networkSlice = createSlice({

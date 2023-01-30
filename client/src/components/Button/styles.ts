@@ -2,18 +2,32 @@ import styled, { css } from 'styled-components';
 import { ButtonProps } from '.';
 
 const COLOR = {
-    primary: css`
-        background: #35736E;
-        border-radius: 18px;
+    primaryPurple: css`
         color: #fff;
         padding: 0.5em 2.5em;
-        filter: drop-shadow(2px 4px 6px #c4c4c4);
+        background: #3B3C4E;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 40px;
     `,
-    secondary: css`
+    primaryGreen: css`
         color: #fff;
-        background: #302D2D;
-        padding: 20px 50px;
-        border-radius: 10px;
+        padding: 0.5em 2.5em;
+        background: #F9BF29;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 40px;
+    `,
+    secondaryPurple: css`
+        color: #fff;
+        padding: 0.5em 2.5em;
+        background: #0177FB;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 40px;
+    `,
+    secondaryGreen: css`
+        color: #fff;
+        padding: 0.5em 2.5em;
+        background: #0177FB;
+        border-radius: 40px;
     `
 }
 

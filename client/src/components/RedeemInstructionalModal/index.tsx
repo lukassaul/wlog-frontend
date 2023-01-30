@@ -10,6 +10,7 @@ function RedeemInstructionalModal(props: any) {
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
+        className="purple_gradient"
       >
         <Modal.Header closeButton>
         </Modal.Header>
@@ -22,7 +23,7 @@ function RedeemInstructionalModal(props: any) {
                             <div className="flex-center-css">
                                 <p style={{marginLeft: '3em'}}>Make sure you are connected to the Meta Mask wallet, 
 if you haven't connected yet you can click this button to connect.</p>
-                                <p className="yellowButton">Connect to Wallet</p>
+                                <p className={process.env.REACT_APP_THEME === "PURPLE" ? "purpleButton" : "yellowButton"}>Connect to Wallet</p>
                             </div>
                         </div>
                     </li>
@@ -40,7 +41,7 @@ if you haven't connected yet you can click this button to connect.</p>
                         <div>
                             <div className="flex-center-css mv1">
                                 <div className="instructional-input">Amount</div>
-                                <p className="greenButton mv1">Redeem</p>
+                                <p className={process.env.REACT_APP_THEME === "PURPLE" ? "purpleButton mv1" : "greenButton mv1"}>Redeem</p>
                             </div>
                         </div>
                     </li>
@@ -52,7 +53,7 @@ if you haven't connected yet you can click this button to connect.</p>
                 <input type="checkbox" onChange={props.handleDontShowCheckbox} className="mr1"/>
                 Don't Show me again
             </label>
-            <span className="greenButton pointer" onClick={props.onHide}>Okay</span>
+            <span className={process.env.REACT_APP_THEME === "PURPLE" ? "purpleButton pointer" : "greenButton pointer"} onClick={props.onHide}>Okay</span>
         </Modal.Footer>
       </Modal>
     );

@@ -10,6 +10,7 @@ function SwapInstructionalModal(props: any) {
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
+        className="purple_gradient"
       >
         <Modal.Header closeButton>
         </Modal.Header>
@@ -47,7 +48,7 @@ function SwapInstructionalModal(props: any) {
                         <span className="pinkbg">3</span>Press Submit button.
                         <div>
                             <div className="flex-center-css">
-                                <span className="greenButton">Submit</span>
+                                <span className={process.env.REACT_APP_THEME === "PURPLE" ? "purpleButton" : "greenButton"}>Submit</span>
                             </div>
                         </div>
                     </li>
@@ -59,7 +60,7 @@ function SwapInstructionalModal(props: any) {
                 <input type="checkbox" onChange={props.handleDontShowCheckbox} className="mr1"/>
                 Don't Show me again
             </label>
-            <span className="greenButton pointer" onClick={props.onHide}>Okay</span>
+            <span className={process.env.REACT_APP_THEME === "PURPLE" ? "purpleButton pointer" : "greenButton pointer"} onClick={props.onHide}>Okay</span>
         </Modal.Footer>
       </Modal>
     );
