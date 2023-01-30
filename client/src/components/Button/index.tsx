@@ -4,7 +4,7 @@ import { Content } from "./styles";
 export type ButtonProps = {
     onClick?: (event: React.MouseEvent<HTMLElement>) => void;
     children?: React.ReactNode;
-    color?: 'primary' | 'secondary';
+    color?: 'primaryPurple' | 'primaryGreen' | 'secondaryPurple' | 'secondaryGreen';
     disabled?: boolean;
     type?: 'button' | 'submit' | 'reset' | undefined;
 }
@@ -12,7 +12,7 @@ export type ButtonProps = {
 function Button({
     onClick,
     children,
-    color = 'primary',
+    color = 'primaryPurple',
     disabled,
     type
 }: ButtonProps) {

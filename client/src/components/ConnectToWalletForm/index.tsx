@@ -36,10 +36,10 @@ function ConnectToWalletForm(props: any) {
    
     return (
         <form>
-            <WholeWrapper>
+            <WholeWrapper className={process.env.REACT_APP_THEME === "PURPLE" ? "purple_wood_section" : "green_wood_section"}>
                 
                 <div className="flex-center-fullheight pv2">
-                    <p className="font-weight-bold font-green text-center word-wrap">Make sure you are connected to your browser wallet, 
+                    <p className="font-weight-bold text-center word-wrap">Make sure you are connected to your browser wallet, 
     if you haven't connected yet you can click this button to connect.</p>
 
                     {isLoading ?
@@ -48,11 +48,14 @@ function ConnectToWalletForm(props: any) {
                             <Icon icon="line-md:loading-twotone-loop" color="#ffc700" />
                         </>
                         :
-                        <Button onClick={(e)=> { 
-                            e.preventDefault(); 
-                            clearInputs()
-                            props.setWalletModalShow(true)
-                        }}>
+                        <Button 
+                            onClick={(e)=> { 
+                                e.preventDefault(); 
+                                clearInputs()
+                                props.setWalletModalShow(true)
+                            }}
+                            color={process.env.REACT_APP_THEME === "PURPLE" ? "primaryPurple" : "primaryGreen"}
+                        >
                             Connect
                         </Button>
                     }

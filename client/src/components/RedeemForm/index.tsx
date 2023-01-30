@@ -45,6 +45,8 @@ function RedeemForm(props: any) {
     const [ statusMessage, setStatuseMessage ] = useState("")
 
     const [ formStep, setFormStep] = useState("FORM")
+
+    const [ formattedBalance, setFormattedBalance ] = useState<any>()
     
     /*
     * Create input validation
@@ -129,33 +131,52 @@ function RedeemForm(props: any) {
         }
     }
 
-    //console.log("tokenBalance: ", formatEther(tokenBalance))
-    // console.log("localhostBalance: ", localhostBalance)
+    //console.log("tokenBalance: ", tokenBalance)
+
+    //console.log("REACT_APP_THEME: ", process.env.REACT_APP_THEME)
     return (
         <form>
-            <WholeWrapper>
+            <WholeWrapper className={process.env.REACT_APP_THEME === "PURPLE" ? "purple_wood_section" : "green_wood_section"}>
                 {burnStatus === "None" || burnStatus === "Exception" || burnStatus === "Success" ?
                 <>
                     {account?
-                        <div className="flex-row-spacebetween bb pb2 font-green g1">
-                            <div className="flex-start-css">
-                                <div><p className="formlabel">Account:</p> {account}</div>
-                                {chainId? <div><span className="formlabel">Chain id:</span> {Localhost.chainId}</div>: null}
-                                <div><span className="formlabel">Connected with:</span> {connector?.connector?.name ?? 'None'}</div>
-                                { tokenBalance ?
-                                    <div className="bal font-green">
-                                        <span className="formlabel">Balance:</span> {formatEther(tokenBalance)}
-                                    </div>
-                                    :  null
-                                }
+                        <div className="bb pb2 g1">
+                            <div className="mb2">
+                                <Button 
+                                    onClick={(e) => { e.preventDefault(); deactivate()}}
+                                    color={process.env.REACT_APP_THEME === "PURPLE" ? "primaryPurple" : "primaryGreen"}
+                                >
+                                    Disconnect Wallet
+                                </Button>
                             </div>
-                            <div>
-                                <Button onClick={(e) => { e.preventDefault(); deactivate()}}>Disconnect Wallet</Button>
+                            <div className="flex-start-css">
+                                <table className="account_table" width={"100%"}>
+                                    <tr>
+                                        <td>Account</td>
+                                        <td style={{wordBreak: "break-all"}}>{account}</td>
+                                    </tr>
+                                    {chainId ?
+                                        <tr>
+                                            <td>Chain id:</td>
+                                            <td>{Localhost.chainId}</td>
+                                        </tr> : null 
+                                    }
+                                    <tr>
+                                        <td>Connected with:</td>
+                                        <td>{connector?.connector?.name ?? 'None'}</td>
+                                    </tr>
+                                    { tokenBalance ? 
+                                        <tr>
+                                            <td>Balance:</td>
+                                            <td>{formatEther(tokenBalance)}</td>
+                                        </tr>: null
+                                    }
+                                </table>
                             </div>
                         </div>
                         :
                         <div className="pv2">
-                            <p className="font-weight-bold font-green text-center word-wrap">Make sure you are connected to your browser wallet, 
+                            <p className="font-weight-bold text-center word-wrap">Make sure you are connected to your browser wallet, 
             if you haven't connected yet you can click this button to connect.</p>
 
                             {isLoading ?
@@ -164,11 +185,14 @@ function RedeemForm(props: any) {
                                     <Icon icon="line-md:loading-twotone-loop" color="#ffc700" />
                                 </>
                                 :
-                                <Button onClick={(e)=> { 
-                                    e.preventDefault(); 
-                                    clearInputs()
-                                    props.setWalletModalShow(true)
-                                }}>
+                                <Button 
+                                    onClick={(e)=> { 
+                                        e.preventDefault(); 
+                                        clearInputs()
+                                        props.setWalletModalShow(true)
+                                    }}
+                                    color={process.env.REACT_APP_THEME === "PURPLE" ? "primaryPurple" : "primaryGreen"}
+                                >
                                     Connect
                                 </Button>
                             }
@@ -176,7 +200,7 @@ function RedeemForm(props: any) {
                     }
 
                     {formStep === "FORM" ?
-                        <>
+                        <div className="pv2h1">
                             <FormInputWholeAccount
                                 name="woodcoinAddress"
                                 type="text"
@@ -202,39 +226,55 @@ function RedeemForm(props: any) {
                                 }} />
                             {amountValidationError ? <p className="eMessage">{amountValidationError}</p> : null}
 
-                            <Button disabled={account? false : true} onClick={(e) => { e.preventDefault(); validate()}}>Submit</Button>
-                        </>
+                            <Button 
+                                disabled={account? false : true} 
+                                onClick={(e) => { e.preventDefault(); validate()}}
+                                color={process.env.REACT_APP_THEME === "PURPLE" ? "primaryPurple" : "primaryGreen"}
+                            >
+                                Submit
+                            </Button>
+                        </div>
                         :
                         null 
                     }
 
                     {formStep === "REVIEW" ?
-                        <>
-                            <p className="font-gray">Your LOG will be sent to these address:</p>
-                            <p className="font-green">{receivingAddress}</p>
+                        <div className="pv2h1">
+                            <p>Your LOG will be sent to these address:</p>
+                            <p style={{wordBreak: "break-all"}}>{receivingAddress}</p>
 
-                            <div>
-                                <Button onClick={(e) => { e.preventDefault(); setFormStep("FORM")}}>Change Address</Button>
-                                <Button onClick={(e) => { e.preventDefault(); handleBurn()}}>Continue</Button>
+                            <div className="flex-center-g2">
+                                <Button 
+                                    onClick={(e) => { e.preventDefault(); setFormStep("FORM")}}
+                                    color={process.env.REACT_APP_THEME === "PURPLE" ? "secondaryPurple" : "secondaryGreen"}
+                                >
+                                    Change Address
+                                </Button>
+                                <Button 
+                                    onClick={(e) => { e.preventDefault(); handleBurn()}}
+                                    color={process.env.REACT_APP_THEME === "PURPLE" ? "primaryPurple" : "primaryGreen"}
+                                >
+                                    Continue
+                                </Button>
                             </div>
-                        </>
+                        </div>
                         :
                         null
                     }
 
                     {redeemStatus.isRedeemSuccess ?
-                        <p className="font-green">Successful redeem request. Woodcoin (LOG) has been sent to your address.</p>
+                        <p>Successful redeem request. Woodcoin (LOG) has been sent to your address.</p>
                         :
                         null
                     }
                     {redeemStatus.isRedeemFetching ?
-                        <p className="font-gray">Processing your redeem request.</p>
+                        <p>Processing your redeem request.</p>
                         :
                         null
                     }
 
                     {redeemStatus.errorRedeemMessage ?
-                        <p className="font-gray">{redeemStatus.errorRedeemMessage}</p>
+                        <p className="eMessage">{redeemStatus.errorRedeemMessage}</p>
                         :
                         null
                     }

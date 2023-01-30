@@ -378,12 +378,12 @@ export const FormWraper = styled.div`
 export const WholeWrapper = styled.div`
     display: inline-block;
     width: 75%;
-    height: 447px;
+    min-height: 510px;
     max-width: 1000px;
     margin-bottom: 12px;
-    background-color: #fff;
+    //background-color: #fff;
     padding: 2em;
-    border: 1px solid darkgray;
+    //border: 1px solid darkgray;
     border-radius: 1em;
     @media screen and (max-width: 991px) {
       width: 100%;
@@ -677,7 +677,7 @@ export const FormInputWhole = styled.input`
 export const FormInputWholeAccount = styled.input`
     display: flex;
     padding: 18px;
-    border-radius: 1.2em;
+    //border-radius: 1.2em;
     width: 100%;
     border: 1px solid #c0c0c0;
     font-size: 14px;

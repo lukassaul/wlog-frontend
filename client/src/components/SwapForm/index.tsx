@@ -112,7 +112,7 @@ function SwapForm(props: any) {
 
     return (
         <form>
-            <SwapWrapper>
+            <SwapWrapper className={process.env.REACT_APP_THEME === "PURPLE" ? "purple_wood_section" : "green_wood_section"}>
                 <TwoColumnContainer>
                     <div>
                         <div style={{ height: "auto", margin: "0 auto", maxWidth: 128, width: "100%" }}>
@@ -123,10 +123,10 @@ function SwapForm(props: any) {
                                 viewBox={`0 0 256 256`}
                             />
                         </div>
-                        <p className="font-bold font-darkgray mb0">Log Address</p>
+                        <p className="font-bold mb0">Log Address</p>
                         <p 
-                            className="font-green fs12px pointer mb0" 
-                            style={{marginBottom: '0 !important'}} 
+                            className="fs12px pointer mb0" 
+                            style={{marginBottom: '0 !important', color: '#00F0FF'}} 
                             onClick={() => {showCopiedNotification(); navigator.clipboard.writeText(props.address)}}
                         >
                             {props.address}

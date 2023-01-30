@@ -26,14 +26,9 @@ function Redeem() {
     useEffect(() => {
         let modalStorage = localStorage.getItem("hide_redeem_instruction");
 
-        //.log("modalStorage: ", modalStorage)
         if (modalStorage) {
-            //console.log("storage", modalStorage);
             if(modalShow)setModalShow(false)
         } else {
-            //console.log("else modalstorage")
-            //console.log("modalShow: ", modalShow)
-            //console.log("walletModalShow: ", walletModalShow)
             if(!modalShow && !walletModalShow)setModalShow(true)
         }       
     }, [])
@@ -50,12 +45,16 @@ function Redeem() {
     }, [account])
 
     return (<>
-        <div className="dc">
-            <div className="dashboard-container">
-                <div className="wood-bg width100 d-flex flex-column justify-content-center">
+        <div className={process.env.REACT_APP_THEME === "PURPLE" ? "maincontainer flex-auto" : "maincontainer flex-auto"}>
+            <div className="dashboard-container-no-pad tree_rings_bg">
+                <div className="width100 d-flex flex-column justify-content-center align-items-center">
                     <div className="width70 d-flex flex-column justify-content-center">
-                        <div className="text-white pv4h1 dots-container justify-content-center">
-                            <p className="font-weight-bold titlefs text-center word-wrap">Redeem</p>
+                        <div className="text-white pv4h1 justify-content-center">
+                            <p className={process.env.REACT_APP_THEME === "PURPLE" ? 
+                                "font-weight-bold titlefs text-center purple_gradient_text" 
+                                : 
+                                "font-weight-bold titlefs text-center"
+                            }>Redeem</p>
                             
                             <div className="d-flex flex-column justify-content-center align-items-center">
                                 <div className="desc-container">
@@ -67,7 +66,7 @@ function Redeem() {
                                 </div>
                             </div>
 
-                            <p onClick={() => setModalShow(true)} style={{cursor: 'pointer', color: '#3D766C', textAlign: 'left'}}>
+                            <p onClick={() => setModalShow(true)} style={{cursor: 'pointer', color: '#c1c1c1', textAlign: 'center'}}>
                                 Show Redeem instructional modal
                             </p>
                             {/* <button onClick={clearStorage}> Clear Storage</button> */}

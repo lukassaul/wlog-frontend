@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { RootState } from "../../app/store";
 import { simpleContractAddress } from "../../contract";
 
-function Home()  {
+function Faq()  {
 
   const IntroSection = () => {
     return (
@@ -113,7 +113,7 @@ tokens is in turn tracked and verifiable on the blockchains.</p>
 
   const CommunitySection = () => {
     return (
-      <div className="dc mb4">
+      <div className="dc">
         <div className={process.env.REACT_APP_THEME === "PURPLE" ? "purple_wood_section" : "dark_green_section"}>
             <div className="width70 d-flex flex-column justify-content-center">
                 <div>
@@ -121,7 +121,7 @@ tokens is in turn tracked and verifiable on the blockchains.</p>
                   <div className="container">
                     <div className="column">
                       <div className="col-sm flex-row-spacearound mb2 g2">
-                        <div className={process.env.REACT_APP_THEME === "PURPLE" ? "purple_gradient w25h280 flex-center-col g2 community" : "green_gradient w25h280 flex-center-col g2 community"}>
+                        <div className={process.env.REACT_APP_THEME === "PURPLE" ? "purple_gradient w25h280 flex-center-col g2" : "green_gradient w25h280 flex-center-col g2"}>
                           <a href="https://vtscc.org/" target="_blank">
                             <img
                               src={process.env.REACT_APP_THEME === "PURPLE" ? "https://res.cloudinary.com/dba8ifej6/image/upload/v1674616586/vermont_logo_ohqypx.png" : "https://res.cloudinary.com/dba8ifej6/image/upload/v1674620116/vermont_logo_white_vmdpcb.png"}
@@ -130,7 +130,7 @@ tokens is in turn tracked and verifiable on the blockchains.</p>
                             />
                           </a>
                         </div>
-                        <div className={process.env.REACT_APP_THEME === "PURPLE" ? "purple_gradient w35h320 flex-center-col g2 community" : "green_gradient w35h320 flex-center-col g2 community"}>
+                        <div className={process.env.REACT_APP_THEME === "PURPLE" ? "purple_gradient w35h320 flex-center-col g2" : "green_gradient w35h320 flex-center-col g2"}>
                           <img
                             src="/papa_flammy.png"
                             className="community_img largeImgCommunity"
@@ -139,44 +139,14 @@ tokens is in turn tracked and verifiable on the blockchains.</p>
                             <p className="font-white">"The handsome Pappa Flammy of <a href="https://www.youtube.com/watch?v=8oOS7uGY4nk" className="font-white" target="_blank">Flammable Maths fame.</a>"</p>
                           </div>
                         </div>
-                        <div className={process.env.REACT_APP_THEME === "PURPLE" ? "purple_gradient w25h280 flex-center-col g2 community" : "green_gradient w25h280 flex-center-col g2 community"}>
-                          <a href="https://hermesus.com/" target="_blank" className="anchorNoStyle">
+                        <div className={process.env.REACT_APP_THEME === "PURPLE" ? "purple_gradient w25h280 flex-center-col g2" : "green_gradient w25h280 flex-center-col g2"}>
+                          <a href="https://hermesus.com/" target="_blank">
                             <img
                               src="https://res.cloudinary.com/dba8ifej6/image/upload/v1674476831/hermesus_logo_lyjokt.svg"
                               width="240px"
                               className="community_img"
                             />
-                            <p className="font-white mt1 fs12px">Cryptocurrency Trading Platform With Custodial Services</p>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="column">
-                      <div className="col-sm flex-row-spacearound mb2 g2">
-                        <div className={process.env.REACT_APP_THEME === "PURPLE" ? "purple_gradient w25h280 flex-center-col g2 community" : "green_gradient w25h280 flex-center-col g2 community"}>
-                          <a href="https://woodcoin.info/" target="_blank" className="anchorNoStyle">
-                            <p className="font-white subtitlefs">woodcoin.info</p>
-                            <p className="font-white fs12px">The trees, and public coins, are something that all people need.</p>
-                          </a>
-                        </div>
-                        <div className={process.env.REACT_APP_THEME === "PURPLE" ? "purple_gradient w25h280 flex-center-col g2 community" : "green_gradient w25h280 flex-center-col g2 community"}>
-                          <a href="https://twigchain.com/" target="_blank" className="anchorNoStyle">
-                            <img
-                              src="https://res.cloudinary.com/dba8ifej6/image/upload/v1675061881/logo_twigchain_b7unlc.png"
-                              //width="240px"
-                              className="community_img"
-                            />
-                            <p className="font-white mt1 fs12px">Woodcoin Block Explorer</p>
-                          </a>
-                        </div>
-                        <div className={process.env.REACT_APP_THEME === "PURPLE" ? "purple_gradient w25h280 flex-center-col g2 community" : "green_gradient w25h280 flex-center-col g2 community"}>
-                          <a href="https://woodcoin.org/" target="_blank">
-                            <img
-                              src="https://res.cloudinary.com/dba8ifej6/image/upload/v1675061881/logo_woodcoinOrg_ixlfyj.png"
-                              //width="240px"
-                              className="community_img"
-                            />
+                            <p className="font-white">Cryptocurrency Trading Platform With Custodial Services</p>
                           </a>
                         </div>
                       </div>
@@ -207,10 +177,14 @@ tokens is in turn tracked and verifiable on the blockchains.</p>
         </div>
 
         {CommunitySection()}
+
+        <div className="footer">
+          &nbsp
+        </div>
       </div>
       
   </div>
   )
 }
 
-export default Home;
+export default Faq;

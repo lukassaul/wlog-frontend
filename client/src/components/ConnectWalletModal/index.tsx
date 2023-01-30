@@ -40,13 +40,13 @@ function ConnectWalletModal(props: any) {
                     </li> */}
                     <li>
                         <div 
-                            className="wallet_container" 
-                            onClick={() => {
-                                activateBrowserWallet({ type: 'coinbase' })
-                                props.setWalletModalShow(false)
-                            }}
+                            className="wallet_container_disabled" 
+                            // onClick={() => {
+                            //     activateBrowserWallet({ type: 'coinbase' })
+                            //     props.setWalletModalShow(false)
+                            // }}
                         >
-                            <p className="mb0">Coinbase Wallet</p>
+                            <p className="mb0">Coinbase Wallet coming soon</p>
                             <img src="icon_coinbase.png"/>
                         </div>
                     </li>
@@ -58,13 +58,13 @@ function ConnectWalletModal(props: any) {
                     </li> */}
                     <li>
                         <div 
-                            className="wallet_container" 
-                            onClick={() => {
-                                activateBrowserWallet({ type: 'portis' })
-                                props.setWalletModalShow(false)
-                            }}
+                            className="wallet_container_disabled" 
+                            // onClick={() => {
+                            //     activateBrowserWallet({ type: 'portis' })
+                            //     props.setWalletModalShow(false)
+                            // }}
                         >
-                            <p className="mb0">Portis</p>
+                            <p className="mb0">Portis coming soon</p>
                             <img src="icon_portis.png"/>
                         </div>
                     </li>
