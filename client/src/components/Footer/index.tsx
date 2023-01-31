@@ -5,7 +5,7 @@ function Footer() {
     const navigate = useNavigate()
 
     return (
-        <div className="footer_bg font-white flex-row-spacearound pv4h1">
+        <div className={process.env.REACT_APP_THEME === "PURPLE" ? "purple_footer_bg font-white flex-row-spacearound pv4h1" : "green_footer_bg font-white flex-row-spacearound pv4h1"}>
             <div className="flex-start">
                 <div style={{display: 'flex'}}>
                     <img src="/wlog_logo.png"/><span className="subtitlefs">Wlog</span>
