@@ -45,7 +45,7 @@ function Redeem() {
     }, [account])
 
     return (<>
-        <div className={process.env.REACT_APP_THEME === "PURPLE" ? "maincontainer flex-auto" : "maincontainer flex-auto"}>
+        <div className={process.env.REACT_APP_THEME === "PURPLE" ? "maincontainer flex-auto main_black" : "maincontainer flex-auto main_black"}>
             <div className="dashboard-container-no-pad tree_rings_bg">
                 <div className="width100 d-flex flex-column justify-content-center align-items-center">
                     <div className="width70 d-flex flex-column justify-content-center">
