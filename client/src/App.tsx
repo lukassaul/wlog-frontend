@@ -23,6 +23,7 @@ import Home from './pages/Home';
 import { simpleContractAddress } from './contract';
 import { setNetwork } from './features/networkSlice';
 import { AppDispatch } from './app/store';
+import Faq from './pages/Faq';
 
 const PORTIS_DAPP_ID = 'b7acf773-2ab1-4189-8eba-21fce8f57181'
 
@@ -89,6 +90,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/swap" element={<Swap />} />
               <Route path="/redeem" element={<Redeem />} />
+              <Route path="/faqs" element={<Faq />} />
             </Routes>
             <Footer />
         </div>
