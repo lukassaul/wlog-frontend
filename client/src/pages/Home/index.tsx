@@ -1,9 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from 'react-redux'
 import { RootState } from "../../app/store";
 import { simpleContractAddress } from "../../contract";
+import { GetLogBalanceAPI } from "../../api/getLogBalance";
+import { getTokenBalance } from "../../utils/getTokenBalance";
+import { formatCurrency } from "../../utils/numberFormatter";
 
 function Home()  {
+  
+  const [logBalance, setLogBalance] = useState<string>()
+  const [wlogBalance, setWLogBalance] = useState<string>()
+
+  const getBal = async () => {
+    let logBalApi = await GetLogBalanceAPI()
+    if(logBalApi.data.balance) {
+      setLogBalance(formatCurrency(logBalApi.data.balance))
+    }
+
+    let tbal = await getTokenBalance(process.env.REACT_APP_WLOGADDRESS)
+    if(tbal) {
+      setWLogBalance(tbal)
+    }
+  }
+
+  useEffect(() => {
+    getBal()
+  }, [])
 
   const IntroSection = () => {
     return (
@@ -73,36 +95,52 @@ tokens is in turn tracked and verifiable on the blockchains.</p>
           </div>
         </div>
 
-        <div className="pv4h1">
-          <p className="font-white text-justify">The Woodcoin address below is a multisignature address that is associated with four (4) private keys and are controlled by the custodians.</p>
+        <div className="pv4h1 font-gray">
+          <p className="text-justify">The Woodcoin address below is a multisignature address that is associated with four (4) private keys and are controlled by the custodians.</p>
           <div className="custodianAddTable">
-            <table className="table table-bordered table_purplelt_bg font-white">
-              <thead>
-                <th className="th-sm font-weight-bold">Woodcoin Address</th>
-                <th className="th-sm font-weight-bold">Balance Amount</th>
-              </thead>
+            <table className="table table-bordered table_purplelt_bg taStart font-gray">
               <tbody>
                 <tr>
                   <td className="w-50 text text-truncate">
-
-                    <span><a href="https://explorer.woodcoin.org/address/3Pcard62U2tfLWtsjSARZ28K7gvnBrAgaS" target="_blank">
-                    3Pcard62U2tfLWtsjSARZ28K7gvnBrAgaS
+                    <span className="mrhalf">Woodcoin Address: </span>
+                    <span><a href="https://explorer.woodcoin.org/address/3Pcard62U2tfLWtsjSARZ28K7gvnBrAgaS" target="_blank" className="font-white">
+                    {process.env.REACT_APP_LOGADDRESS}
                   </a></span>
                   </td>
-                  <td>100,000.00</td>
+                  <td className="w-50 text text-truncate">
+                    <span className="mrhalf">Wlog Address: </span>
+                      <span><a href="https://polygonscan.com/token/0x89f8be64da35308260ba2d13d0d1e7fd80a3a210?a=0x0a46ecf048619c53eca2f969eec0ba071c9a827c" target="_blank" className="font-white">
+                      {process.env.REACT_APP_WLOGADDRESS}
+                    </a></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="w-50 text text-truncate">
+                    <span>Balance: {logBalance}</span>
+                  </td>
+                  <td className="w-50 text text-truncate">
+                    <span>Balance: {wlogBalance}</span>
+                  </td>
                 </tr>
               </tbody>
             </table>
           </div>
           <div className="custodianAddDiv">
-            <table>
+            <table className="table table-bordered table_purplelt_bg font-gray">
               <tbody>
                 <tr><td>Woodcoin Address</td></tr>
                 <tr><td className="wordBreakAll"><a href="https://explorer.woodcoin.org/address/3Pcard62U2tfLWtsjSARZ28K7gvnBrAgaS" className="font-white" target="_blank">
-                3Pcard62U2tfLWtsjSARZ28K7gvnBrAgaS
+                {process.env.REACT_APP_LOGADDRESS}
               </a></td></tr>
-                <tr><td>Balance Amount</td></tr>
-                <tr><td className="font-white">100,000.00</td></tr>
+                <tr><td>Balance</td></tr>
+                <tr><td className="font-white">{logBalance}</td></tr>
+
+                <tr><td>WLog Address</td></tr>
+                <tr><td className="wordBreakAll"><a href="https://polygonscan.com/token/0x89f8be64da35308260ba2d13d0d1e7fd80a3a210?a=0x0a46ecf048619c53eca2f969eec0ba071c9a827c" className="font-white" target="_blank">
+                {process.env.REACT_APP_WLOGADDRESS}
+              </a></td></tr>
+                <tr><td>Balance</td></tr>
+                <tr><td className="font-white">{wlogBalance}</td></tr>
               </tbody>
             </table>
           </div>
@@ -120,7 +158,7 @@ tokens is in turn tracked and verifiable on the blockchains.</p>
                   <p className="pct subtitlefs font-weight-bold font-white">JOIN THE COMMUNITY</p>
                   <div className="container">
                     <div className="column">
-                      <div className="col-sm flex-row-spacearound mb2 g2">
+                      <div className="col-sm flex-row-spacearound-centersm mb2 g2">
                         <div className={process.env.REACT_APP_THEME === "PURPLE" ? "purple_gradient w25h280 flex-center-col g2 community" : "green_gradient w25h280 flex-center-col g2 community"}>
                           <a href="https://vtscc.org/" target="_blank">
                             <img
@@ -143,8 +181,7 @@ tokens is in turn tracked and verifiable on the blockchains.</p>
                           <a href="https://hermesus.com/" target="_blank" className="anchorNoStyle">
                             <img
                               src="https://res.cloudinary.com/dba8ifej6/image/upload/v1674476831/hermesus_logo_lyjokt.svg"
-                              width="240px"
-                              className="community_img"
+                              className="community_img imgSize240"
                             />
                             <p className="font-white mt1 fs12px">Cryptocurrency Trading Platform With Custodial Services</p>
                           </a>
@@ -153,7 +190,7 @@ tokens is in turn tracked and verifiable on the blockchains.</p>
                     </div>
 
                     <div className="column">
-                      <div className="col-sm flex-row-spacearound mb2 g2">
+                      <div className="col-sm flex-row-spacearound-centersm mb2 g2">
                         <div className={process.env.REACT_APP_THEME === "PURPLE" ? "purple_gradient w25h280 flex-center-col g2 community" : "green_gradient w25h280 flex-center-col g2 community"}>
                           <a href="https://woodcoin.info/" target="_blank" className="anchorNoStyle">
                             <p className="font-white subtitlefs">woodcoin.info</p>

@@ -51,10 +51,15 @@ function Header() {
                     </div>
                 </NavLogo>
                 <MobileIcon onClick={handleClick}>
-                    {click ? <span style={{fontSize: '18px'}}>X</span> : <img src="https://res.cloudinary.com/dba8ifej6/image/upload/v1653547266/bars_icon_eqdxv5.png" alt="Menu icon" style={{width: '18px'}}/>}
+                    {click ? <span style={{fontSize: '18px'}}>X</span> : <img src="https://res.cloudinary.com/dba8ifej6/image/upload/v1675074779/hamburger_white_ub0ycg.png" alt="Menu icon" style={{width: '18px'}}/>}
                 </MobileIcon>
 
                 <NavMenu onClick={handleClick} click={click}>
+                    {/* <NavItem>
+                        <NavLinks to='/faqs' onClick={closeMobileMenu}>
+                            FAQs
+                        </NavLinks>
+                    </NavItem> */}
                     <NavItem>
                         <NavLinks to='/swap' onClick={closeMobileMenu}>
                             Swap
