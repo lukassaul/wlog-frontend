@@ -283,8 +283,14 @@ body {
   align-items: center;
 }
 
-.footer_bg {
+.purple_footer_bg {
   background-image: url("https://res.cloudinary.com/dba8ifej6/image/upload/v1675064433/wlog_footer_jregb4.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.green_footer_bg {
+  background-image: url("https://res.cloudinary.com/dba8ifej6/image/upload/v1675150945/green_footer_rmxnno.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -320,6 +326,12 @@ body {
 
 .purple_gradient_2 {
   background: linear-gradient(180deg, #38123B 0%, #0F1E33 100%), #23242F;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 23px;
+}
+
+.green_gradient_2 {
+  background: linear-gradient(180deg, #30675D 0%, #F9BF29 238.94%), #23242F;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 23px;
 }
@@ -663,6 +675,14 @@ body {
   display: none;
 }
 
+@media screen and (max-width: 1520px) {
+
+  .width70 {
+    width: 90%;
+  }
+
+}
+
 @media screen and (max-width: 1260px) {
   .titlefs {
     font-size: 3em;
@@ -677,21 +697,21 @@ body {
   }
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 1280px) {
   .dashboard-container {
     padding: 1.5em;
   }
 
+  .container {
+    width: 90% !important;
+  }
+
+  .purple_wood_section {
+    padding: 2em 0;
+  }
+
   .width70 {
     width: 90%;
-  }
-
-  .width60 {
-    width: 50%;
-  }
-
-  .imgSize100 {
-    width: 80%;
   }
 
   .xltitlefs {
@@ -702,12 +722,33 @@ body {
     font-size: 4em;
   }
 
-  .titlefs {
-    font-size: 2em;
-  }
-
   .desc-container {
     width: 100%;
+  }
+
+  .w35h320 {
+    width: 60%;
+  }
+
+  .imgSize240 {
+    width: 180px;
+    height: auto;
+  }
+
+  .subtitlefs {
+    font-size: 1em;
+  }
+
+  .titlefs {
+    font-size: 3em;
+  }
+
+  .width60 {
+    width: 60%;
+  }
+
+  .imgSize100 {
+    width: 80%;
   }
 
 }
@@ -765,6 +806,55 @@ body {
     font-size: 1em;
   }
 
+}
+
+@media screen and (max-width: 655px) {
+  
+  .width70 {
+    width: 100%;
+  }
+
+  .subtitlefs {
+    font-size: 2em;
+  }
+
+  .w25h280 {
+    width: 90%;
+  }
+  
+  .w35h320 {
+    width: 100%;
+  }
+
+  .flex-row-spacearound {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .flex-row-spacearound-centersm {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .imgSize100 {
+    width: 80%;
+  }
+
+  .imgSize550 {
+    width: 80%;
+    height: auto;
+  }
+  
+  .imgSize382 {
+    width: 80%;
+    height: auto;
+  }
+
+  .largeImgCommunity {
+    width: 240px;
+    height: auto;
+  }
 }
 
 

@@ -78,7 +78,11 @@ tokens is in turn tracked and verifiable on the blockchains.</p>
       <div>
         <p className="pct subtitlefs font-weight-bold text-white">PROOF OF ASSETS</p>
 
-        <div className="d-flex container-br purple_gradient_2 mv2h1 pv2h1 font-white">
+        <div className={process.env.REACT_APP_THEME === "PURPLE" ? 
+          "d-flex container-br purple_gradient_2 mv2h1 pv2h1 font-white"
+          :
+          "d-flex container-br green_gradient_2 mv2h1 pv2h1 font-white"
+        }>
           <div className="flex-fill p-2">
             <p className="subtitlefs font-weight-bold">Network</p>
             <div>
@@ -152,7 +156,7 @@ tokens is in turn tracked and verifiable on the blockchains.</p>
   const CommunitySection = () => {
     return (
       <div className="dc mb4">
-        <div className={process.env.REACT_APP_THEME === "PURPLE" ? "purple_wood_section" : "dark_green_section"}>
+        <div className={process.env.REACT_APP_THEME === "PURPLE" ? "purple_wood_section" : "green_wood_section"}>
             <div className="width70 d-flex flex-column justify-content-center">
                 <div>
                   <p className="pct subtitlefs font-weight-bold font-white">JOIN THE COMMUNITY</p>
