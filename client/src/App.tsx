@@ -74,7 +74,7 @@ function App() {
 
   useEffect(() => {
     if(networkEnv === "POLYGON_MUMBAI") {
-      dispatch(setNetwork("Polygon Mumbai"))
+      dispatch(setNetwork("Polygon-mumbai"))
     }
     if(networkEnv === "POLYGON") {
       dispatch(setNetwork("Polygon"))
