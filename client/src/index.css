@@ -306,6 +306,10 @@ body {
   background: linear-gradient(0.5turn, #35736E, #F9BF29, #FFF);
 }
 
+.main_green {
+  background-color: #35736E;
+}
+
 .main_black {
   background-color: #000;
 }
