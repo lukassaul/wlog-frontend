@@ -84,7 +84,7 @@ function App() {
   return (
     <DAppProvider config={process.env.REACT_APP_NETWORK === "POLYGON_MUMBAI" ? mumbai_config : polygon_config}>
       <Router>
-        <div className={process.env.REACT_APP_THEME === "PURPLE" ? "App flex-col main_black" : "App flex-col main_green_gradient"}>
+        <div className={process.env.REACT_APP_THEME === "PURPLE" ? "App flex-col main_black" : "App flex-col main_green"}>
             <Header />
             <Routes>
               <Route path="/" element={<Home />} />
