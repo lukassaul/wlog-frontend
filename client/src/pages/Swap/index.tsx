@@ -91,12 +91,12 @@ function Swap() {
                             </div>
                             {/* <p onClick={clearStorage}> Clear Storage</p> */}
 
-                            {/*<SwapInstructionalModal
+                            {/* <SwapInstructionalModal
                                 show={modalShow}
                                 onHide={() => setModalShow(false)}
                                 address={logAddress}
                                 handleDontShowCheckbox={handleDontShowCheckbox}
-                            />*/}
+                            /> */}
                         </div>
                     </div>
                 </div>
