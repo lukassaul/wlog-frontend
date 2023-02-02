@@ -10,12 +10,12 @@ function RedeemInstructionalModal(props: any) {
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
-        className="purple_gradient"
       >
+        <div className="purple_modal_gradient">
         <Modal.Header closeButton>
         </Modal.Header>
         <Modal.Body>
-            <div className="pv0h1">
+            <div className="pv0h1 text-white">
                 <ul>
                     <li>
                         <span className="cyanbg">1</span>Check Wallet connection
@@ -48,13 +48,14 @@ if you haven't connected yet you can click this button to connect.</p>
                 </ul>
             </div>
         </Modal.Body>
-        <Modal.Footer>
+        <Modal.Footer className="text-white">
             <label>
                 <input type="checkbox" onChange={props.handleDontShowCheckbox} className="mr1"/>
                 Don't Show me again
             </label>
             <span className={process.env.REACT_APP_THEME === "PURPLE" ? "purpleButton pointer" : "greenButton pointer"} onClick={props.onHide}>Okay</span>
         </Modal.Footer>
+        </div>
       </Modal>
     );
   }
