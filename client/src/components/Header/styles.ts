@@ -94,7 +94,8 @@ export const NavMenu = styled.ul<{click: boolean}>`
     left: ${({ click }) => (click ? 0 : '-100%')};
     opacity: 1;
     transition: all 0.5s ease;
-    background: #FFF;
+    background: linear-gradient(180deg, #963D97 0%, #1F6AAC 100%);
+    //box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
     z-index: 99;
   }
 `;
@@ -152,7 +153,7 @@ export const NavLinks = styled(Link)`
     /* padding: 2rem; */
     width: 100%;
     display: table;
-    color: #35736E;
+    color: #FFF;
     &:hover {
       color: #4b59f7;
       transition: all 0.3s ease;

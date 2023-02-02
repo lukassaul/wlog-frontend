@@ -54,7 +54,7 @@ tokens is in turn tracked and verifiable on the blockchains.</p>
             "https://res.cloudinary.com/dba8ifej6/image/upload/v1674704033/wrapped_log_purple_vhk3jk.png"
             : 
             "https://res.cloudinary.com/dba8ifej6/image/upload/v1674704034/wrapped_log_yellow_i7w2mp.png"} 
-            className="imgSize100"
+            className="imgSize100 logImage"
           />
         </div>
 
