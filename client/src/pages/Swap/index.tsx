@@ -59,7 +59,7 @@ function Swap() {
                             >
                                 SWAP
                             </p>
-                            <p className="font-weight-bold text-center word-wrap">WLOG contract address ({simpleContractAddress})</p>
+                            <p className="font-weight-bold text-center wordBreakWord">WLOG contract address ({simpleContractAddress})</p>
                             <p className="font-weight-bold text-center word-wrap">Import WLOG token to your meta mask wallet</p>
 
                             <div className="d-flex flex-column justify-content-center align-items-center">
