@@ -676,6 +676,11 @@ body {
   height: auto;
 }
 
+.imgSize320 {
+  width: 320px;
+  height: auto;
+}
+
 .imgSize240 {
   width: 240px;
   height: auto;
@@ -998,6 +1003,11 @@ body {
     height: auto;
   }
 
+  .imgSize320 {
+    width: 90%;
+    height: auto;
+  }
+
   .flex-center-g2 {
     flex-direction: column;
     gap: 1em;
@@ -1006,6 +1016,10 @@ body {
   .largeImgCommunity {
     width: 240px;
     height: auto;
+  }
+
+  .text-justify-bword {
+    text-align: center;
   }
 }
 
@@ -1135,6 +1149,12 @@ ul li:last-child span:before{
 
 .text-justify {
   text-align: justify;
+  word-break: break-all;
+}
+
+.text-justify-bword {
+  text-align: justify;
+  word-break: break-word;
 }
 
 .g1 {
@@ -1156,6 +1176,12 @@ ul li:last-child span:before{
 
 .loadingWallet {
   animation: text-color 2s ease-in-out infinite;
+}
+
+.selectedFaq {
+  font-size: 18px;
+  font-weight: bold;
+  color: #c1c1c1 !important;
 }
 
 @keyframes text-color {
