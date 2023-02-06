@@ -105,14 +105,14 @@ tokens is in turn tracked and verifiable on the blockchains.</p>
             <table className="table table-bordered table_purplelt_bg taStart font-gray">
               <tbody>
                 <tr>
-                  <td className="w-50 text text-truncate">
-                    <span className="mrhalf">Woodcoin Address: </span>
+                  <td className="w-50 text text-justify">
+                    <p className="mrhalf">Woodcoin Address: </p>
                     <span><a href="https://explorer.woodcoin.org/address/3Pcard62U2tfLWtsjSARZ28K7gvnBrAgaS" target="_blank" className="font-white">
                     {process.env.REACT_APP_LOGADDRESS}
                   </a></span>
                   </td>
-                  <td className="w-50 text text-truncate">
-                    <span className="mrhalf">Wlog Address: </span>
+                  <td className="w-50 text  text-justify">
+                    <p className="mrhalf">Wlog Address: </p>
                       <span><a href="https://polygonscan.com/token/0x89f8be64da35308260ba2d13d0d1e7fd80a3a210?a=0x0a46ecf048619c53eca2f969eec0ba071c9a827c" target="_blank" className="font-white">
                       {process.env.REACT_APP_WLOGADDRESS}
                     </a></span>
