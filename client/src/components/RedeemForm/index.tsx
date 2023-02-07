@@ -5,9 +5,10 @@ import {
     useEtherBalance, 
     useTokenBalance,
     useLogs,
-    Localhost 
+    Localhost,
+    Polygon 
 } from '@usedapp/core'
-import { formatEther } from '@ethersproject/units'
+import { formatEther, formatUnits } from '@ethersproject/units'
 import {Icon} from '@iconify/react'
 import { useTotalSupply, useGetAdmin,  useContractMethod, useTotalMinted } from '../../hooks'
 import { simpleContractAddress, ssReceivingAddress } from "../../contract"
@@ -158,7 +159,7 @@ function RedeemForm(props: any) {
                                     {chainId ?
                                         <tr>
                                             <td>Chain id:</td>
-                                            <td>{Localhost.chainId}</td>
+                                            <td>{Polygon.chainId}</td>
                                         </tr> : null 
                                     }
                                     <tr>
@@ -168,7 +169,7 @@ function RedeemForm(props: any) {
                                     { tokenBalance ? 
                                         <tr>
                                             <td>Balance:</td>
-                                            <td>{formatEther(tokenBalance)}</td>
+                                            <td>{formatUnits(tokenBalance, 8)}</td>
                                         </tr>: null
                                     }
                                 </table>
