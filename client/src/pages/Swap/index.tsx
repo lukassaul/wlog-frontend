@@ -12,10 +12,10 @@ function Swap() {
     const [logAddress, setLogAddress] = useState(null);
     const [checked, setIsChecked] = useState(0);
 
-    // const handleDontShowCheckbox = (e: any) => {
-    //     setIsChecked(e.target.checked);
-    //     localStorage.setItem("hide_swap_instruction", e.target.checked);
-    // };
+    const handleDontShowCheckbox = (e: any) => {
+        setIsChecked(e.target.checked);
+        localStorage.setItem("hide_swap_instruction", e.target.checked);
+    };
 
     /**
      * Call backend API to return woodcoin address
@@ -62,7 +62,7 @@ function Swap() {
                             <p className="font-weight-bold text-center wordBreakWord">WLOG contract address ({simpleContractAddress})</p>
                             <p className="font-weight-bold text-center word-wrap">Import WLOG token to your meta mask wallet</p>
 
-                            <div className="d-flex flex-column justify-content-center align-items-center">
+                            {/* <div style={{display: 'none'}} className="d-flex flex-column justify-content-center align-items-center">
                                 
                                 <p className={process.env.REACT_APP_THEME === "PURPLE" ? 
                                     "font-weight-bold text-center purple_gradient_text xltitlefs" 
@@ -74,29 +74,32 @@ function Swap() {
                                 <p className="text-center text-white word-wrap">
                                     Wlog/Matic trading pair is now available in <a href="https://www.sushi.com/swap" target="_blank">Sushiswap</a>
                                 </p>
-                            </div>
+                            </div> */}
 
                             {/*
                                 Hide swap form in the meantime
                             */}
-                            <div style={{display: 'none'}}>
+                            <div>
                                 <div className="d-flex flex-column justify-content-center align-items-center">
                                     <div className="desc-container">
                                         {logAddress ? <SwapForm address={logAddress} />: null }
                                     </div>
                                 </div>
-                                <p onClick={() => setModalShow(true)} style={{cursor: 'pointer', color: '#fff', textAlign: 'left'}}>
+                                <p onClick={() => setModalShow(true)} style={{cursor: 'pointer', color: '#fff', textAlign: 'center'}}>
                                     Show Swap instructional modal
+                                </p>
+                                <p className="text-center text-white word-wrap">
+                                    Wlog/Matic trading pair is now available in <a href="https://www.sushi.com/swap" target="_blank">Sushiswap</a>
                                 </p>
                             </div>
                             {/* <p onClick={clearStorage}> Clear Storage</p> */}
 
-                            {/* <SwapInstructionalModal
+                            <SwapInstructionalModal
                                 show={modalShow}
                                 onHide={() => setModalShow(false)}
                                 address={logAddress}
                                 handleDontShowCheckbox={handleDontShowCheckbox}
-                            /> */}
+                            />
                         </div>
                     </div>
                 </div>
