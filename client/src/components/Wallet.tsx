@@ -12,8 +12,6 @@ function Wallet() {
     const localhostBalance = useEtherBalance(account, {chainId: Localhost.chainId});
     const totalSupply = useTotalSupply();
     const admin = useGetAdmin();
-    console.log("admin: ", admin)
-    console.log("total minted: ", useTotalMinted())
 
     const { state: mintState, send: setMint} = useContractMethod('mint')
     const { state: burnState, send: setBurn} = useContractMethod('burn')

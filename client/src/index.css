@@ -713,6 +713,45 @@ body {
   display: none;
 }
 
+/**
+  FAQ
+**/
+
+.divShowMobile {
+  display: none;
+}
+
+.sidebar {
+  display: block;
+  max-width: 20%;
+  min-height: 200px;
+  height: 25vh;
+  overflow: auto;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 5%;
+  padding: 1em;
+}
+
+.selectedFaq {
+  font-size: 18px;
+  font-weight: bold;
+  color: #c1c1c1 !important;
+}
+
+.faq-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.wlborder {
+  border-left: 1px solid #fff;
+}
+
+/**
+  FAQ
+**/
+
 @media screen and (max-width: 1520px) {
 
   .width70 {
@@ -850,6 +889,18 @@ body {
   .sidebar {
     display: none;
   }
+
+  .divShowMobile {
+    display: flex;
+  }
+
+  .width80 {
+    width: 100%;
+  }
+
+  .mb4 {
+    margin-bottom: 2em;
+  }
 }
 
 @media screen and (max-width: 655px) {
@@ -859,7 +910,7 @@ body {
   }
 
   .subtitlefs {
-    font-size: 2em;
+    font-size: 1em;
   }
 
   .w25h280 {
@@ -919,10 +970,6 @@ body {
     width: 100%;
   }
 
-  .width80 {
-    width: 100%;
-  }
-
   .desc-container {
     width: 100%;
   }
@@ -940,7 +987,7 @@ body {
   }
 
   .subtitlefs {
-    font-size: 2em;
+    font-size: 1em;
   }
 
   .container-br {
@@ -1202,42 +1249,6 @@ ul li:last-child span:before{
 .loadingWallet {
   animation: text-color 2s ease-in-out infinite;
 }
-
-
-/**
-  FAQ
-**/
-
-.sidebar {
-  display: block;
-  max-width: 20%;
-  min-height: 200px;
-  height: 25vh;
-  overflow: auto;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 5%;
-  padding: 1em;
-}
-
-.selectedFaq {
-  font-size: 18px;
-  font-weight: bold;
-  color: #c1c1c1 !important;
-}
-
-.faq-wrapper {
-  display: flex;
-  justify-content: space-between;
-}
-
-.wlborder {
-  border-left: 1px solid #fff;
-}
-
-/**
-  FAQ
-**/
 
 @keyframes text-color {
   0% {
