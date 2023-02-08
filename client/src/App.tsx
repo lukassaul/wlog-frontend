@@ -25,7 +25,6 @@ import { setNetwork } from './features/networkSlice';
 import { AppDispatch } from './app/store';
 import Faq from './pages/Faq';
 
-const PORTIS_DAPP_ID = 'b7acf773-2ab1-4189-8eba-21fce8f57181'
 
 const mumbai_config = {
   networks: [Mumbai],
@@ -40,7 +39,6 @@ const mumbai_config = {
   connectors: {
     metamask: new MetamaskConnector(),
     coinbase: new CoinbaseWalletConnector(),
-    portis: new PortisConnector(PORTIS_DAPP_ID, 'mainnet'),
   },
 }
 
@@ -57,7 +55,6 @@ const polygon_config = {
   connectors: {
     metamask: new MetamaskConnector(),
     coinbase: new CoinbaseWalletConnector(),
-    portis: new PortisConnector(PORTIS_DAPP_ID, 'mainnet'),
   },
 }
 

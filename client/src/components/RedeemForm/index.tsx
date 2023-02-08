@@ -36,7 +36,7 @@ function RedeemForm(props: any) {
     const totalSupply = useTotalSupply();
     var tokenBalance = useTokenBalance(simpleContractAddress, account)
     const localhostBalance = useEtherBalance(account, {chainId: Localhost.chainId});
-   
+    
     const [ amount, setAmout] = useState(0);
     const [ receivingAddress, setReceivingAddress] = useState("");
     const { state: burnState, send: transfer, events: burnEvents, resetState: resetBurnState} = useContractMethod('transfer')

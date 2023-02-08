@@ -1,15 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from 'react-redux'
+import { formatUnits } from '@ethersproject/units'
 import { RootState } from "../../app/store";
 import { simpleContractAddress } from "../../contract";
 import { GetLogBalanceAPI } from "../../api/getLogBalance";
 import { getTokenBalance } from "../../utils/getTokenBalance";
+import { getTokenMinted } from "../../utils/getTokenBalance";
 import { formatCurrency } from "../../utils/numberFormatter";
+import { useTotalSupply, useTotalMinted } from "../../hooks";
+import { ethers } from "ethers";
+import WLOG from "../../abi/WLOG.json";
 
 function Home()  {
   
   const [logBalance, setLogBalance] = useState<string>()
   const [wlogBalance, setWLogBalance] = useState<string>()
+  const [totalMinted, setTotalMinted] = useState<string>()
+  
+  const provider = new ethers.providers.JsonRpcProvider('https://polygon-mainnet.infura.io/v3/5f889400e82546ae9e9052bca6de4706');
 
   const getBal = async () => {
     let logBalApi = await GetLogBalanceAPI()
@@ -20,6 +28,11 @@ function Home()  {
     let tbal = await getTokenBalance(process.env.REACT_APP_WLOGADDRESS)
     if(tbal) {
       setWLogBalance(tbal)
+    }
+
+    let mint = await getTokenMinted()
+    if (mint) {
+      setTotalMinted(mint)
     }
   }
 
@@ -73,6 +86,7 @@ tokens is in turn tracked and verifiable on the blockchains.</p>
     )
   }
 
+
   const ProofSection = () => {
     return (
       <div>
@@ -84,17 +98,17 @@ tokens is in turn tracked and verifiable on the blockchains.</p>
           "d-flex container-br green_gradient_2 mv2h1 pv2h1 font-white"
         }>
           <div className="flex-fill p-2">
-            <p className="subtitlefs font-weight-bold">Network</p>
+            <p className="subtitlefs font-weight-bold">Minted</p>
             <div>
               <img src="/wlog_logo_colored.png" width="50px" height="50px" />
-              <span className="fs15em font-weight-bold">100,000 WLOG</span>
+              <span className="fs15em font-weight-bold"> { totalMinted } WLOG</span>
             </div>
           </div>
           <div className="flex-fill p-2">
             <p className="subtitlefs font-weight-bold">Custody</p>
             <div>
               <img src="/logIcon.png" width="50px" height="50px"/>
-              <span className="fs15em font-weight-bold">100,000 LOG</span>
+              <span className="fs15em font-weight-bold"> {totalMinted} LOG</span>
             </div>
           </div>
         </div>
