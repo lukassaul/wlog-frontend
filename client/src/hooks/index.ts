@@ -12,7 +12,7 @@ const ContractInstance = new Contract(simpleContractAddress, Interface);
 export function useTotalSupply() {
     const { value, error }: any = useCall({
         contract: ContractInstance,
-        method: '_total_supply',
+        method: 'totalSupply',
         args: []
     }) ?? {}
     return value?.[0];

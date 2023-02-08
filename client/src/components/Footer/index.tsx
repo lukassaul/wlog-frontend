@@ -16,7 +16,7 @@ function Footer() {
             <div className="flex-start-css">
                 <p className="pointer" onClick={() => navigate('/redeem')}>Redeem</p>
                 <p className="pointer" onClick={() => navigate('/swap')}>Swap</p>
-                {/* <p className="pointer" onClick={() => navigate('/faqs')}>FAQs</p> */}
+                <p className="pointer" onClick={() => navigate('/faqs')}>FAQs</p>
             </div>
             <div className="flex-start-css">
                 <p>Contact Us</p>

@@ -8,6 +8,10 @@ const COLOR = {
         background: #3B3C4E;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 40px;
+        &:hover,
+        &:focus {
+            background: #21222e;
+        }
     `,
     primaryGreen: css`
         color: #fff;
@@ -22,6 +26,10 @@ const COLOR = {
         background: #0177FB;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 40px;
+        &:hover,
+        &:focus {
+            background: #034085;
+        }
     `,
     secondaryGreen: css`
         color: #fff;
