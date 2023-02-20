@@ -700,6 +700,11 @@ body {
   height: auto;
 }
 
+.imgSize280 {
+  width: 280px;
+  height: auto;
+}
+
 .imgSize240 {
   width: 240px;
   height: auto;
@@ -941,7 +946,12 @@ body {
     height: auto;
   }
   
-  .imgSize382 {
+  .imgSize320 {
+    width: 80%;
+    height: auto;
+  }
+
+  .imgSize280 {
     width: 80%;
     height: auto;
   }
@@ -1077,6 +1087,11 @@ body {
 
   .imgSize320 {
     width: 90%;
+    height: auto;
+  }
+
+  .imgSize280 {
+    width: 80%;
     height: auto;
   }
 
