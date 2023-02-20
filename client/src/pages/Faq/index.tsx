@@ -4,10 +4,11 @@ import { RootState } from "../../app/store";
 import { simpleContractAddress } from "../../contract";
 
 function Faq()  {
+  const aboutRef = useRef()
   const transactionRef = useRef()
   const metamaskRef = useRef()
 
-  const [showFAQ, setShowFAQ] = useState("TRANSACTION")
+  const [showFAQ, setShowFAQ] = useState("ABOUT")
 
   const handleSectionShow = (section:string) => {
     setShowFAQ(section)
@@ -22,6 +23,12 @@ function Faq()  {
           <a href="#Metamask" className="text-white text-justify">Setting up Metamask</a> */}
 
           <div className="divShowMobile flex-start-css">
+            <p 
+              className={ showFAQ === "ABOUT" ? "selectedFaq pointer" : "text-white pointer"}
+              onClick={() => handleSectionShow("ABOUT")}
+            >
+              About LOG and WLOG
+            </p>
             <p 
               className={ showFAQ === "TRANSACTION" ? "selectedFaq pointer" : "text-white pointer"}
               onClick={() => handleSectionShow("TRANSACTION")}
@@ -45,6 +52,13 @@ function Faq()  {
     return (
       <div className="sidebar">
         <p 
+          className={ showFAQ === "ABOUT" ? "selectedFaq pointer" : "text-white pointer"}
+          onClick={() => handleSectionShow("ABOUT")}
+        >
+          About LOG and WLOG
+        </p>
+
+        <p 
           className={ showFAQ === "TRANSACTION" ? "selectedFaq pointer" : "text-white pointer"}
           onClick={() => handleSectionShow("TRANSACTION")}
         >
@@ -57,6 +71,43 @@ function Faq()  {
         >
           Setting up Metamask
         </p>
+      </div>
+    )
+  }
+  
+  const FaqSectionAbout = () => {
+    return (
+      <div className="dc mb4" id="aboutRef">
+        <div className="width70 d-flex flex-column justify-content-center align-items-center gp2 text-white padding0Mobile1">
+            <p className="subtitlefs mb4">About LOG and WLOG</p>
+
+            <div className="width70 flex-start-css pv2h1">
+              <p className="subtitlefs text-justify-bword">What is Woodcoin?</p>
+              <p className="text-justify-bword">Woodcoin [LOG] is the original logarithmically growing money supply
+coin, built with proof of work using the Skein hash function and relying
+on the elliptic curve SECP256r1 for addressing and signatures.
+</p>
+            </div>
+
+            <div className="width70 flex-start-css pv2h1">
+              <p className="subtitlefs text-justify-bword">Why use WLOG?</p>
+              <p className="text-justify-bword">WLOG enables us to use the so-called “decentralized exchcanges” to
+enable easy access markets and get more liquidity for a more stable
+value.</p>
+            </div>
+
+            <div className="width70 flex-start-css pv2h1">
+              <p className="subtitlefs text-justify-bword">What about Privacy?</p>
+              <p className="text-justify-bword">There are no privacy features, swaps and redeems are all public and the
+records of LOG and WLOG are all public.</p>
+            </div>
+
+            <div className="width70 flex-start-css pv2h1">
+              <p className="subtitlefs text-justify-bword">Where can I trade WLOG?</p>
+              <p className="text-justify-bword"><a href="https://www.sushi.com/swap" target="_blank" className="font-white">Sushiswap</a> has some , any other defi market you like.</p>
+            </div>
+
+        </div>
       </div>
     )
   }
@@ -127,7 +178,7 @@ function Faq()  {
 
   return(
     <div className={process.env.REACT_APP_THEME === "PURPLE" ? "maincontainer main_black" : "maincontainer main_green_gradient"}>
-      <div className="tree_rings_bg flex-col-g6">
+      <div className="tree_rings_bg flex-col">
         
         {TitleSection()}
 
@@ -135,6 +186,8 @@ function Faq()  {
           {Sidebar()}
 
           <div className="wlborder width80">
+            {showFAQ === "ABOUT" ? FaqSectionAbout() : null}
+
             {showFAQ === "TRANSACTION" ? FaqSectionFee() : null}
 
             {showFAQ === "METAMASK" ? FaqSectionMetamask() : null}
