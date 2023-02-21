@@ -42,7 +42,7 @@ function SwapForm(props: any) {
 
     function SocketController() {
         
-        socket = new WebSocket(`wss://twigchain.com:4000/payment?address=${props.address}`)
+        socket = new WebSocket(`wss://twigchain.com:4000?address=${props.address}`)
 
         socket.addEventListener('open', function(event){
             console.log('connected to ws server')
