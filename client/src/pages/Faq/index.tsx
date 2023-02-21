@@ -119,7 +119,7 @@ records of LOG and WLOG are all public.</p>
             <p className="subtitlefs mb4">Adjusting Transaction fee in Woodcoin QT wallet</p>
             <div className="width70 flex-start-css pv2h1">
               <p className="text-justify-bword">In cryptocurrency, the transaction speed depends on the amount of fee you pay. You can reduce transaction time by paying a higher fee.</p>
-              <p className="text-justify-bword">When using the Woodcoin QT wallet to transfer LOG, we recommend increasing the transaction fee to 0.001 LOG. Doing this can reduce the transaction time to 2-3 minutes.</p>
+              <p className="text-justify-bword">When using the Woodcoin QT wallet to transfer LOG, we recommend increasing the transaction fee to at least 0.001 LOG. Doing this can reduce the transaction time to 2-3 minutes.</p>
               <p className="text-justify-bword">Follow the instructions below if you want to adjust the transaction fee.</p>
             </div>
 
@@ -129,7 +129,7 @@ records of LOG and WLOG are all public.</p>
             <p className="text-justify-bword mv2h1">2. In the dropdown menu, click on Options.</p>
             <img src="https://res.cloudinary.com/dba8ifej6/image/upload/v1675073771/qt_nav_settings_sportf.png" className="imgSize550" alt="wallet qt options" />
 
-            <p className="text-justify-bword mv2h1">3. In the Options window, click on the Wallet tab and adjust the Pay transaction fee amount to 0.001 LOG</p>
+            <p className="text-justify-bword mv2h1">3. In the Options window, click on the Wallet tab and adjust the Pay transaction fee amount to at least 0.001 LOG</p>
             <img src="https://res.cloudinary.com/dba8ifej6/image/upload/v1675073771/qt_nav_fee_bwuvu3.png" className="imgSize382" alt="wallet qt change fee" />
         </div>
       </div>

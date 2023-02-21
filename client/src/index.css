@@ -11,6 +11,17 @@
   height: 100%;
 }
 
+@font-face {
+  font-family: "Digital";
+  src: local("digital-7"),
+   url("./fonts/digital-7.ttf") format("truetype");
+  font-weight: bold;
+}
+
+.font-face-digital {
+  font-family: "Digital";
+ }
+
 body {
   margin: 0;
   height: 100%;
@@ -93,6 +104,10 @@ body {
   color: #FFF;
 }
 
+.font-yellow {
+  color: #F9BF29;
+}
+
 .font-weight-bold {
   font-weight: bold;
 }
@@ -169,6 +184,10 @@ body {
   margin: 4em 1em;
 }
 
+.mv3h0 {
+  margin: 3em 0;
+}
+
 .mb2 {
   margin-bottom: 2em;
 }
@@ -215,6 +234,10 @@ body {
 
 .fs15em {
   font-size: 1.5em;
+}
+
+.fs2em {
+  font-size: 2em;
 }
 
 .fs12px {
@@ -848,6 +871,10 @@ body {
     width: 90%;
   }
 
+  .mv3h0 {
+    margin: 2em 0;
+  }
+
   .flex-row-spacearound {
     flex-direction: row;
     align-items: center;
@@ -1006,6 +1033,10 @@ body {
 
   .mv2 {
     margin: 0 6px;
+  }
+
+  .mv3h0 {
+    margin: 2em 0;
   }
 
   .padding0Mobile1 {
