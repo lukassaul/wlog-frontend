@@ -392,7 +392,7 @@ export const WholeWrapper = styled.div`
 
 export const SwapWrapper = styled.div`
     display: inline-block;
-    width: 75%;
+    //width: 75%;
     max-width: 1000px;
     margin-bottom: 12px;
     background-color: #fff;

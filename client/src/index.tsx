@@ -6,6 +6,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
+import './fonts/digital-7.ttf';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
