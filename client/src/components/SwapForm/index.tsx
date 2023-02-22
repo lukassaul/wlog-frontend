@@ -36,7 +36,7 @@ function SwapForm(props: any) {
     // State for countdown timer
     const [timerEnd, setTimerEnd] = useState(false);
     //const [countdownCompleted, setCountdownCompleted] = useState(false)
-    const [countdownDate, setCountdownDate] = useState(Date.now() + 300000)
+    const [countdownDate, setCountdownDate] = useState(Date.now() + 1200000)
 
     var socket: WebSocket;
 
@@ -183,7 +183,7 @@ function SwapForm(props: any) {
 
 
     const ResetCountdown = () => {
-        setCountdownDate(Date.now() + 300000)
+        setCountdownDate(Date.now() + 1200000)
         setTimerEnd(false)
     }
 
