@@ -20,24 +20,51 @@ function Swap() {
      * Call backend API to return woodcoin address
      * where the user should send the LOG to swap
     **/
-    useEffect(() => {
-        GetLogAddressAPI().then(res => {
-            if(res.data.address) {
-                setLogAddress(res.data.address)
 
-                let modalStorage = localStorage.getItem("hide_swap_instruction");
+    function generateAddress() {
+        try {
+            var hd = window.coinjs.hd(process.env.REACT_APP_XPUB)
+            let x = Math.random() * 100;
+            const INDEX = Math.floor(x)
 
-                //console.log("modalStorage: ", modalStorage)
-                if (modalStorage) {
-                    //console.log("storage", modalStorage);
-                    if(modalShow)setModalShow(false)
-                } else {
-                    //console.log("else modalstorage")
-                    if(!modalShow)setModalShow(true)
-                }
-            
+            var address = hd.derive(INDEX)
+            setLogAddress(address.keys.address)
+
+            let modalStorage = localStorage.getItem("hide_swap_instruction");
+
+            //console.log("modalStorage: ", modalStorage)
+            if (modalStorage) {
+                //console.log("storage", modalStorage);
+                if(modalShow)setModalShow(false)
+            } else {
+                //console.log("else modalstorage")
+                if(!modalShow)setModalShow(true)
             }
-        })
+            
+        }catch(e) {
+            console.log("ERROR")
+        }
+    }
+
+    useEffect(() => {
+        // GetLogAddressAPI().then(res => {
+        //     if(res.data.address) {
+        //         setLogAddress(res.data.address)
+
+        //         let modalStorage = localStorage.getItem("hide_swap_instruction");
+
+        //         //console.log("modalStorage: ", modalStorage)
+        //         if (modalStorage) {
+        //             //console.log("storage", modalStorage);
+        //             if(modalShow)setModalShow(false)
+        //         } else {
+        //             //console.log("else modalstorage")
+        //             if(!modalShow)setModalShow(true)
+        //         }
+            
+        //     }
+        // })
+        generateAddress()
     }, [])
 
     const clearStorage = () => {

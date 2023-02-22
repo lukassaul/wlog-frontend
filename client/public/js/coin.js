@@ -580,7 +580,7 @@
 
 	/* start of hd functions, thanks bip32.org */
 	coinjs.hd = function(data){
-		console.log("COINJS HD FUNCTION: ", data)
+		//console.log("COINJS HD FUNCTION: ", data)
 		var r = {};
 
 		/* some hd value parsing */
@@ -653,13 +653,13 @@
 
 		// derive key from index
 		r.derive = function(i){
-			console.log("COINJS HD DERIVE FUNCTION: ", r.chain_code)
-			console.log("this.keys.privkey: ", this.keys.privkey)
-			console.log("r.keys.pubkey: ", r.keys.pubkey)
-			console.log("r.chain_code: ", r.chain_code)
+			//console.log("COINJS HD DERIVE FUNCTION: ", r.chain_code)
+			//console.log("this.keys.privkey: ", this.keys.privkey)
+			//console.log("r.keys.pubkey: ", r.keys.pubkey)
+			//console.log("r.chain_code: ", r.chain_code)
 			i = (i)?i:0;
 			var blob = (Crypto.util.hexToBytes(this.keys.pubkey)).concat(coinjs.numToBytes(i,4).reverse());
-			console.log("blob: ", blob)
+			//console.log("blob: ", blob)
 			var j = new jsSHA(Crypto.util.bytesToHex(blob), 'HEX');
  			var hash = j.getHMAC(Crypto.util.bytesToHex(r.chain_code), "HEX", "SHA-512", "HEX");
 
@@ -690,7 +690,7 @@
 			} else if (this.type=='public'){
 				// derive xpub key from an xpub key
 				q = ecparams.curve.decodePointHex(this.keys.pubkey);
-				console.log('q: ', q)
+				//console.log('q: ', q)
 				var curvePt = ecparams.getG().multiply(il).add(q);
 
 				var x = curvePt.getX().toBigInteger();
@@ -703,7 +703,7 @@
 					publicKeyBytesCompressed.unshift(0x03)
 				}
 				pubkey = Crypto.util.bytesToHex(publicKeyBytesCompressed);
-				console.log("address: ", pubkey)
+				//console.log("address: ", pubkey)
 				o.keys = {'pubkey':pubkey,
 					'address':coinjs.pubkey2address(pubkey)}
 			} else {
@@ -718,7 +718,7 @@
 
 		// make a master hd xprv/xpub
 		r.master = function(pass) {
-			console.log("COINJS HD master FUNCTION: ")
+			//console.log("COINJS HD master FUNCTION: ")
 			var seed = (pass) ? Crypto.SHA256(pass) : coinjs.newPrivkey();
 			var hasher = new jsSHA(seed, 'HEX');
 			var I = hasher.getHMAC("Bitcoin seed", "TEXT", "SHA-512", "HEX");
@@ -737,7 +737,7 @@
 
 		// encode data to a base58 string
 		r.make = function(data){ // { (int) depth, (array) parent_fingerprint, (int) child_index, (byte array) chain_code, (hex str) privkey, (hex str) pubkey}
-			console.log("COINJS HD make FUNCTION: ")
+			//console.log("COINJS HD make FUNCTION: ")
 			var k = [];
 
 			//depth
