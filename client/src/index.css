@@ -286,6 +286,11 @@ body {
   justify-content: space-around;
 }
 
+.notificationContainer {
+  background: rgba(249, 191, 41, 0.5);
+  padding: 1em 2em;
+}
+
 .dc {
   display: flex;
   flex: 1;
