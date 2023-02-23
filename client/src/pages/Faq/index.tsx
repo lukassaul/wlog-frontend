@@ -14,31 +14,42 @@ function Faq()  {
     setShowFAQ(section)
   }
 
+  function scrollToTop() {
+    window.scrollTo(0, 0);
+  };
+
   const TitleSection = () => {
     return (
       <div className={process.env.REACT_APP_THEME === "PURPLE" ? "purple_tree_section_nh" : "green_tree_section"}>
         <p className="font-weight-bold text-center font-white subtitlefs mb0">FAQs</p>
         <div className="width70 flex-start-css mv2h1 text-white">
-          {/* <a href="#transactionRef" className="text-white text-justify">Adjusting Transaction fee in Woodcoin QT wallet</a>
-          <a href="#Metamask" className="text-white text-justify">Setting up Metamask</a> */}
 
           <div className="divShowMobile flex-start-css">
             <p 
               className={ showFAQ === "ABOUT" ? "selectedFaq pointer" : "text-white pointer"}
-              onClick={() => handleSectionShow("ABOUT")}
+              onClick={() => {
+                handleSectionShow("ABOUT")
+                scrollToTop()
+              }}
             >
               About LOG and WLOG
             </p>
             <p 
               className={ showFAQ === "TRANSACTION" ? "selectedFaq pointer" : "text-white pointer"}
-              onClick={() => handleSectionShow("TRANSACTION")}
+              onClick={() => {
+                handleSectionShow("TRANSACTION")
+                scrollToTop()
+              }}
             >
               Adjusting Transaction fee in Woodcoin QT wallet
             </p>
 
             <p 
               className={ showFAQ === "METAMASK" ? "selectedFaq pointer" : "text-white pointer"}
-              onClick={() => handleSectionShow("METAMASK")}
+              onClick={() => {
+                handleSectionShow("METAMASK")
+                scrollToTop()
+              }}
             >
               Setting up Metamask
             </p>
@@ -53,21 +64,30 @@ function Faq()  {
       <div className="sidebar">
         <p 
           className={ showFAQ === "ABOUT" ? "selectedFaq pointer" : "text-white pointer"}
-          onClick={() => handleSectionShow("ABOUT")}
+          onClick={() => {
+            handleSectionShow("ABOUT")
+            scrollToTop()
+          }}
         >
           About LOG and WLOG
         </p>
 
         <p 
           className={ showFAQ === "TRANSACTION" ? "selectedFaq pointer" : "text-white pointer"}
-          onClick={() => handleSectionShow("TRANSACTION")}
+          onClick={() => {
+            handleSectionShow("TRANSACTION")
+            scrollToTop()
+          }}
         >
           Adjusting Transaction fee in Woodcoin QT wallet
         </p>
 
         <p 
           className={ showFAQ === "METAMASK" ? "selectedFaq pointer" : "text-white pointer"}
-          onClick={() => handleSectionShow("METAMASK")}
+          onClick={() => {
+            handleSectionShow("METAMASK")
+            scrollToTop()
+          }}
         >
           Setting up Metamask
         </p>

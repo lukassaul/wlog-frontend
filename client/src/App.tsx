@@ -24,6 +24,7 @@ import { simpleContractAddress } from './contract';
 import { setNetwork } from './features/networkSlice';
 import { AppDispatch } from './app/store';
 import Faq from './pages/Faq';
+import ScrollToTop from './SrollToTop';
 
 
 const mumbai_config = {
@@ -81,16 +82,18 @@ function App() {
   return (
     <DAppProvider config={process.env.REACT_APP_NETWORK === "POLYGON_MUMBAI" ? mumbai_config : polygon_config}>
       <Router>
-        <div className={process.env.REACT_APP_THEME === "PURPLE" ? "App flex-col main_black" : "App flex-col main_green"}>
-            <Header />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/swap" element={<Swap />} />
-              <Route path="/redeem" element={<Redeem />} />
-              <Route path="/faqs" element={<Faq />} />
-            </Routes>
-            <Footer />
-        </div>
+        <ScrollToTop>
+          <div className={process.env.REACT_APP_THEME === "PURPLE" ? "App flex-col main_black" : "App flex-col main_green"}>
+              <Header />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/swap" element={<Swap />} />
+                <Route path="/redeem" element={<Redeem />} />
+                <Route path="/faqs" element={<Faq />} />
+              </Routes>
+              <Footer />
+          </div>
+        </ScrollToTop>
       </Router>
     </DAppProvider>
   );
