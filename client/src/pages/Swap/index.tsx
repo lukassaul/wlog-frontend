@@ -78,6 +78,9 @@ function Swap() {
                 <div className="width100 d-flex flex-column justify-content-center align-items-center">
                     <div className="width70 d-flex flex-column justify-content-center">
                         <div className="text-white justify-content-center">
+                            <div className="notificationContainer text-white">
+                                <p className="mb0">The minimum swap is 100 LOGs. Make sure to send the correct amount because we don't offer a refund.</p>
+                            </div>
                             <p className={process.env.REACT_APP_THEME === "PURPLE" ? 
                                 "font-weight-bold titlefs text-center purple_gradient_text" 
                                 : 

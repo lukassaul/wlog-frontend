@@ -585,7 +585,7 @@
 
 		/* some hd value parsing */
 		r.parse = function() {
-			console.log("COINJS HD PARSE FUNCTION: ", bytes)
+			//console.log("COINJS HD PARSE FUNCTION: ", bytes)
 			var bytes = [];
 
 			// some quick validation
@@ -626,7 +626,7 @@
 				} else if(r.key_bytes[0] == 0x02 || r.key_bytes[0] == 0x03) {
 					r.type = 'public';
 					var pubkeyHex = Crypto.util.bytesToHex(r.key_bytes);
-					console.log("pubkeyHex: ", pubkeyHex)
+					//console.log("pubkeyHex: ", pubkeyHex)
 					r.keys = {'pubkey': pubkeyHex,
 						'address':coinjs.pubkey2address(pubkeyHex)};
 				} else {
@@ -641,7 +641,7 @@
 
 		// extend prv/pub key
 		r.extend = function(){
-			console.log("COINJS HD extend FUNCTION: ")
+			//console.log("COINJS HD extend FUNCTION: ")
 			var hd = coinjs.hd();
 			return hd.make({'depth':(this.depth*1)+1,
 				'parent_fingerprint':this.parent_fingerprint,
