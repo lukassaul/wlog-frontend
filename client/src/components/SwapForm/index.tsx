@@ -29,6 +29,7 @@ function SwapForm(props: any) {
 
     const [ addressValidationError, setAddressValidatorError] = useState("")
     const [ txhashValidationError, setTxhashValidatorError] = useState("")
+    const [ minAmountError, setMinAmountError] = useState("")
 
     const [ formStep, setFormStep] = useState("SENDLOG")
     const [ receiveTransfer, setReceiveTransfer] = useState(false)
@@ -49,17 +50,26 @@ function SwapForm(props: any) {
         })
 
         socket.addEventListener('message', function(event){
-            console.log('message from server: ', event.data)
-            var response = event.data
-            if(response.includes('transaction id')) {
-                var txid = response.split(' ')
-                setCountdownDate(Date.now())
-                setTimerEnd(true)
-                setReceiveTransfer(true)
-                setTxhash(txid[2])
-                setFormStep("FORM")
-                // Close socket connection
-                socket.close()
+            //console.log('message from server: ', event.data)
+            if(event.data !== "something") {
+                var response = JSON.parse(event.data)
+                if(response.txid && response.amount >= 100 ) {
+
+                    var txid = response.txid
+                    setCountdownDate(Date.now())
+                    setTimerEnd(true)
+                    setReceiveTransfer(true)
+                    setTxhash(txid)
+                    setFormStep("FORM")
+                    // Close socket connection
+                    socket.close()
+                } else {
+                    console.log("LOG received is below minimum swap amount")
+                    setMinAmountError("The received LOG is below the minimum swap amount. Sorry, we don't do a refund.")
+                    setCountdownDate(Date.now())
+                    setTimerEnd(true)
+                    closeSocket()
+                }
             }
         })
 
@@ -375,7 +385,9 @@ function SwapForm(props: any) {
         }
         {timerEnd && !receiveTransfer ?
             <>
-                <span className="font-face-digital fs2em font-yellow mv2h1">0:00</span>
+                {!minAmountError ? <span className="font-face-digital fs2em font-yellow mv2h1">0:00</span> : null}
+
+                {minAmountError ? <p className="fs15em font-yellow">{minAmountError}</p> : null}
                 <p className="text-center word-wrap fs2em">Still want to continue?</p>
 
                 <div className="mv3h0">
