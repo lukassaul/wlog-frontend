@@ -5,6 +5,7 @@ interface swapState {
     isLogSuccess: boolean,
     isLogFetching: boolean,
     errorLogMessage: string | null,
+    txid: string | null
 }
 
 interface ValidationErrors {
@@ -15,6 +16,7 @@ const initialState: swapState = {
     isLogSuccess: false,
     isLogFetching: false,
     errorLogMessage: "",
+    txid: ""
 }
 
 export const swapRequest = createAsyncThunk<
@@ -56,6 +58,7 @@ export const swapSlice = createSlice({
         builder.addCase(swapRequest.fulfilled, (state, {payload}) => {
             state.isLogFetching = false
             state.isLogSuccess = true
+            state.txid = payload
         })
         builder.addCase(swapRequest.rejected, (state, action) => {
             state.isLogFetching = false

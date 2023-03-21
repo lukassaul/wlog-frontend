@@ -330,6 +330,7 @@ function SwapForm(props: any) {
                                         <div className="status-container font-green g1">
                                             <img src="wlog_status_form.png" width={"81px"}/>
                                             <span>Wlog sent to your address</span>
+                                            <span>Transaction id: {swapStatus.txid}</span>
                                             <Button 
                                                 onClick={(e) => { 
                                                     e.preventDefault()
