@@ -56,9 +56,14 @@ export const swapSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(swapRequest.fulfilled, (state, {payload}) => {
-            state.isLogFetching = false
-            state.isLogSuccess = true
-            state.txid = payload
+            if(payload.message === "Proccessing your transaction please wait.") {
+                state.isLogFetching = false
+                state.isLogSuccess = true
+            } else {
+                state.isLogFetching = false
+                state.isLogSuccess = true
+                state.txid = payload.txid
+            }
         })
         builder.addCase(swapRequest.rejected, (state, action) => {
             state.isLogFetching = false
