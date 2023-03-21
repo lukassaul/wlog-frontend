@@ -35,20 +35,20 @@ function SwapInstructionalModal(props: any) {
                         </div>
                     </li>
                     <li>
-                        <span className="purplebg">2</span>Fill up Transaction ID, Wlog Address and Amount input field.
+                        <span className="purplebg">2</span>Enter the Polygon address where you want the WLOG to be sent.
                         <div>
                             <div className="flex-center-css minHeight190 g1">
-                                <div className="instructional-input">Transaction ID</div>
+                                {/* <div className="instructional-input">Transaction ID</div> */}
                                 <div className="instructional-input">Wlog Address</div>
-                                <div className="instructional-input">Amount</div>
+                                {/* <div className="instructional-input">Amount</div> */}
                             </div>
                         </div>
                     </li>
                     <li>
-                        <span className="pinkbg">3</span>Press Submit button.
+                        <span className="pinkbg">3</span>Wait for your WLOG
                         <div>
                             <div className="flex-center-css">
-                                <span className={process.env.REACT_APP_THEME === "PURPLE" ? "purpleButton" : "greenButton"}>Submit</span>
+                            <p className="mb0" style={{marginTop: '1em'}}>The system will return a transaction id for the WLOG transfer.</p>
                             </div>
                         </div>
                     </li>

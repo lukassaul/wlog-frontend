@@ -326,10 +326,30 @@ function SwapForm(props: any) {
 
                             {formStep === "SUCCESS" ?
                                 <>
-                                    {swapStatus.isLogSuccess ?
+                                    {swapStatus.isLogSuccess && swapStatus.txid ?
                                         <div className="status-container font-green g1">
                                             <img src="wlog_status_form.png" width={"81px"}/>
                                             <span>Wlog sent to your address</span>
+                                            <span>Transaction id: {swapStatus.txid}</span>
+                                            <Button 
+                                                onClick={(e) => { 
+                                                    e.preventDefault()
+                                                    //socket.close()
+                                                    setFormStep("SENDLOG")
+                                                    dispatch(clearLogState())
+                                                    navigate('/')
+                                                }}
+                                            >
+                                                    Okay
+                                            </Button>
+                                        </div>
+                                        :
+                                        null
+                                    }
+                                    {swapStatus.isLogSuccess && swapStatus.txid === "" ?
+                                        <div className="status-container font-green g1">
+                                            <img src="wlog_status_form.png" width={"81px"}/>
+                                            <span>Processing your swap request. Please wait.</span>
                                             <Button 
                                                 onClick={(e) => { 
                                                     e.preventDefault()
