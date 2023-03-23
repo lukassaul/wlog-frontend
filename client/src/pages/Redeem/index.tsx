@@ -6,6 +6,10 @@ import RedeemForm from "../../components/RedeemForm";
 import RedeemInstructionalModal from "../../components/RedeemInstructionalModal";
 import ConnectWalletModal from "../../components/ConnectWalletModal";
 import ConnectToWalletForm from "../../components/ConnectToWalletForm";
+import { GetLogBalanceBEAPI } from "../../api/getLogBalanceBackend";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState, AppDispatch } from "../../app/store";
+import { logBalanceGetRequest } from "../../features/redeemSlice";
 
 function Redeem() {
     const { account, deactivate } = useEthers();
@@ -23,15 +27,15 @@ function Redeem() {
      * Call backend API to return woodcoin address
      * where the user should send the LOG to swap
     **/
-    useEffect(() => {
-        let modalStorage = localStorage.getItem("hide_redeem_instruction");
+    // useEffect(() => {
+    //     let modalStorage = localStorage.getItem("hide_redeem_instruction");
 
-        if (modalStorage) {
-            if(modalShow)setModalShow(false)
-        } else {
-            if(!modalShow && !walletModalShow)setModalShow(true)
-        }       
-    }, [])
+    //     if (modalStorage) {
+    //         if(modalShow)setModalShow(false)
+    //     } else {
+    //         if(!modalShow && !walletModalShow)setModalShow(true)
+    //     }       
+    // }, [])
 
     const clearStorage = () => {
         localStorage.removeItem("hide_redeem_instruction");
@@ -44,12 +48,35 @@ function Redeem() {
         if(account) setWalletModalShow(false)
     }, [account])
 
+    useEffect(() => {
+        GetLogBalanceBEAPI()
+    }, [])
+
+    /**
+     * Get Wlog balance to display the maximum amount available for swap
+     */
+    const dispatch = useDispatch<AppDispatch>()
+    const {
+        maxRedeemAmount,
+        isGetLogBalanceSuccess,
+        isGetLogBalanceFetching,
+        errorGetLogBalanceMessage
+    } = useSelector((state: RootState) => state.redeem)
+    
+    useEffect(() => {
+        dispatch(logBalanceGetRequest("address"));
+    }, [dispatch]);
+
+
     return (<>
         <div className={process.env.REACT_APP_THEME === "PURPLE" ? "maincontainer flex-auto main_black" : "maincontainer flex-auto main_green"}>
             <div className="dashboard-container-no-pad tree_rings_bg">
                 <div className="width100 d-flex flex-column justify-content-center align-items-center">
                     <div className="width70 d-flex flex-column justify-content-center">
-                        <div className="text-white pv4h1 justify-content-center">
+                        <div className="text-white justify-content-center">
+                            <div className="notificationContainer text-white">
+                                <p className="mb0">The maximum redeem amount is <span className="font-weight-bold">{maxRedeemAmount} WLOGs</span>.</p>
+                            </div>
                             <p className={process.env.REACT_APP_THEME === "PURPLE" ? 
                                 "font-weight-bold titlefs text-center purple_gradient_text" 
                                 : 
@@ -58,8 +85,8 @@ function Redeem() {
                             
                             <div className="d-flex flex-column justify-content-center align-items-center">
                                 <div className="desc-container">
-                                    {account ? 
-                                        <RedeemForm />
+                                    {account && maxRedeemAmount ? 
+                                        <RedeemForm maxRedeemAmount={maxRedeemAmount} />
                                         :
                                         <ConnectToWalletForm setWalletModalShow={setWalletModalShow}/>
                                     }

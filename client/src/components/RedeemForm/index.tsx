@@ -26,7 +26,7 @@ import { RootState, AppDispatch } from "../../app/store"
 import { redeemRequest, clearLogState } from "../../features/redeemSlice"
 
 function RedeemForm(props: any) {
-
+    console.log("redeem form props: ", props)
     const dispatch = useDispatch<AppDispatch>()
     const network = useSelector((state: RootState) => state.network)
     const redeemStatus = useSelector((state: RootState) => state.redeem)
@@ -117,6 +117,10 @@ function RedeemForm(props: any) {
         }
         if (!amount) {
             setAmountValidatorError("Amount is required")
+            return
+        }
+        if (amount && amount > props.maxRedeemAmount) {
+            setAmountValidatorError(`The amount inputted is greater than the maximum redemption amount of ${props.maxRedeemAmount}`)
             return
         }
         // Check if receiving address is valid
