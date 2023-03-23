@@ -79,7 +79,16 @@ tokens is in turn tracked and verifiable on the blockchains.</p>
     return (
       <div className={process.env.REACT_APP_THEME === "PURPLE" ? "purple_tree_section" : "green_tree_section"}>
         <div className="font-white">
-          <p className="font-weight-bold text-center wordBreakAll">WLOG contract address ({simpleContractAddress})</p>
+          <p className="font-weight-bold text-center wordBreakAll">
+            WLOG Polygon contract address 
+            <a 
+              href="https://polygonscan.com/token/0x89F8bE64Da35308260BA2d13d0d1e7Fd80A3A210"
+              target="_blank"
+              style={{textDecoration: 'none', marginLeft: '8px'}}
+            >
+              ({simpleContractAddress})
+            </a>
+          </p>
           <p className="font-weight-bold text-center wordBreak">Import WLOG token to your meta mask wallet</p>
         </div>
       </div>

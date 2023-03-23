@@ -49,10 +49,10 @@ if you haven't connected yet you can click this button to connect.</p>
             </div>
         </Modal.Body>
         <Modal.Footer className="text-white">
-            <label>
+            {/* <label>
                 <input type="checkbox" onChange={props.handleDontShowCheckbox} className="mr1"/>
                 Don't Show me again
-            </label>
+            </label> */}
             <span className={process.env.REACT_APP_THEME === "PURPLE" ? "purpleButton pointer" : "greenButton pointer"} onClick={props.onHide}>Okay</span>
         </Modal.Footer>
         </div>
