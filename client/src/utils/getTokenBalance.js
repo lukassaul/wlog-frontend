@@ -35,3 +35,13 @@ export async function getTokenMinted(address) {
     return formattedMinted;
 
 } 
+
+export async function getWLOGBalance() {
+    // const tokenContractAddress = process.env.REACT_APP_POLYGON_CONTRACT_ADDRESS;
+    // const networkProvider = process.env.REACT_APP_NODE_POLYGON
+    // const provider = new providers.JsonRpcProvider(networkProvider);
+    // const contract = new Contract(tokenContractAddress, WLOG, provider);
+
+    const balance = (await contract.balanceOf(process.env.REACT_APP_WLOG)/10**8).toString();
+    return balance;
+}

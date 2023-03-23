@@ -16,6 +16,9 @@ function SwapInstructionalModal(props: any) {
         </Modal.Header>
         <Modal.Body>
             <div className="pv0h1 text-white">
+                <div className="flex-center-css">
+                    <p className="font-yellow">This transaction has a commision of 10% fee.</p>
+                </div>
                 <ul>
                     <li>
                         <span className="cyanbg">1</span>Send Woodcoin to the address shown or scan the QR code.
@@ -45,10 +48,10 @@ function SwapInstructionalModal(props: any) {
                         </div>
                     </li>
                     <li>
-                        <span className="pinkbg">3</span>Wait for your WLOG
+                        <span className="pinkbg">3</span>Submit and Wait for your WLOG
                         <div>
                             <div className="flex-center-css">
-                            <p className="mb0" style={{marginTop: '1em'}}>The system will return a transaction id for the WLOG transfer.</p>
+                                <p className="mb0" style={{marginTop: '1em'}}>The system will return a transaction id for the WLOG transfer.</p>
                             </div>
                         </div>
                     </li>
@@ -56,10 +59,10 @@ function SwapInstructionalModal(props: any) {
             </div>
         </Modal.Body>
         <Modal.Footer className="text-white">
-            <label>
+            {/* <label>
                 <input type="checkbox" onChange={props.handleDontShowCheckbox} className="mr1"/>
                 Don't Show me again
-            </label>
+            </label> */}
             <span className={process.env.REACT_APP_THEME === "PURPLE" ? "purpleButton pointer" : "greenButton pointer"} onClick={props.onHide}>Okay</span>
         </Modal.Footer>
         </div>
