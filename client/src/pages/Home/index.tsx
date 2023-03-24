@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
+import moment from "moment";
+import Table from 'react-bootstrap/Table';
 import { formatUnits } from '@ethersproject/units'
-import { RootState } from "../../app/store";
+import { RootState, AppDispatch } from "../../app/store";
 import { simpleContractAddress } from "../../contract";
 import { GetLogBalanceAPI } from "../../api/getLogBalance";
 import { getTokenBalance } from "../../utils/getTokenBalance";
@@ -10,9 +12,13 @@ import { formatCurrency } from "../../utils/numberFormatter";
 import { useTotalSupply, useTotalMinted } from "../../hooks";
 import { ethers } from "ethers";
 import WLOG from "../../abi/WLOG.json";
+import { reportGetRequest } from "../../features/reportSlice";
+
 
 function Home()  {
-  
+  const dispatch = useDispatch<AppDispatch>()
+  const { transactions, isGetReportFetching, isGetReportSuccess } = useSelector((state: RootState) => state.report)
+
   const [logBalance, setLogBalance] = useState<string>()
   const [wlogBalance, setWLogBalance] = useState<string>()
   const [totalMinted, setTotalMinted] = useState<string>()
@@ -38,7 +44,9 @@ function Home()  {
 
   useEffect(() => {
     getBal()
+    dispatch(reportGetRequest("report"))
   }, [])
+
 
   const IntroSection = () => {
     return (
@@ -253,6 +261,51 @@ tokens is in turn tracked and verifiable on the blockchains.</p>
     )
   }
 
+
+  const TransactionSection = () => {
+    let swapTx = transactions.swapTxToday
+    let redeemTx = transactions.redeemTxToday
+    let allTx = transactions.allTx 
+    
+    return (
+      <div className="width70 mv4h1">
+        <div className="flex-row-spacearound mb2">
+          <div>
+            <p className="fs15em font-white">Number of Swap transactions today</p>
+            <p className="fs2em font-yellow">{swapTx.length > 0 ? swapTx.lenght : "No transactions"}</p>
+          </div>
+          <div>
+            <p className="fs15em font-white">Number of Redeem transactions today</p>
+            <p className="fs2em font-yellow">{redeemTx.length > 0 ? redeemTx.lenght : "No transactions"}</p>
+          </div>
+        </div>
+        <div>
+          <Table striped bordered hover variant="dark">
+            <thead className="font-white">
+              <td>ACTION</td>
+              <td>DATE & TIME</td>
+              <td>AMOUNT (WLOG)</td>
+            </thead>
+            <tbody>
+              {allTx.map((tx:any) => {
+                if(tx.status === "COMPLETED") {
+                  let link = tx.transaction==="SWAP" ? `https://polygonscan.com/tx/${tx.txidWLOGMint}` : `https://polygonscan.com/tx/${tx.txidWLOGTransfer}`
+                  return (
+                    <tr onClick={()=> window.open(link, "_blank")} className="pointer">
+                      <td>{tx.transaction==="SWAP" ? "SWAP" : "REDEEM"}</td>
+                      <td>{moment(tx.createdAt).format('MMMM D, YYYY - h:mm:ss a')}</td>
+                      <td>{tx.transaction==="SWAP" ? tx.twmAmount : tx.twrAmount}</td>
+                    </tr>
+                  )
+                }
+              })}
+            </tbody>
+          </Table>
+        </div>
+      </div>
+    )
+  }
+
   return(
     <div className={process.env.REACT_APP_THEME === "PURPLE" ? "maincontainer main_black" : "maincontainer main_green_gradient"}>
       <div className="tree_rings_bg flex-col-g6">
@@ -272,6 +325,13 @@ tokens is in turn tracked and verifiable on the blockchains.</p>
 
         {CommunitySection()}
       </div>
+      {isGetReportSuccess && transactions.allTx.length > 0 ? 
+        <div className="dashboard-container">
+          {TransactionSection()}
+        </div>
+        : 
+        null
+      }
       
   </div>
   )
