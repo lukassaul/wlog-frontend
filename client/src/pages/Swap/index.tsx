@@ -116,7 +116,7 @@ function Swap() {
                                     Show Swap instructional modal
                                 </p>
                                 <p className="text-center text-white word-wrap">
-                                    Wlog trading pair is now available in <a href="https://app.uniswap.org/#/swap?exactField=input&exactAmount=100&inputCurrency=0x89F8bE64Da35308260BA2d13d0d1e7Fd80A3A210" target="_blank">Uniswap</a>
+                                    Wlog trading pair is now available in <a href="https://app.uniswap.org/#/swap?exactField=input&exactAmount=100&inputCurrency=0x89F8bE64Da35308260BA2d13d0d1e7Fd80A3A210" target="_blank">Uniswap</a> and <a href="https://www.sushi.com/swap" target="_blank">Sushiswap</a>.
                                 </p>
                             </div>
                             {/* <p onClick={clearStorage}> Clear Storage</p> */}
