@@ -357,6 +357,10 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+.purple-solid-bg {
+  background-color: #602B64;
+}
+
 .purple_gradient {
   background: linear-gradient(29.59deg, #1A6BAC 0%, #993B96 100%);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -1330,4 +1334,39 @@ ul li:last-child span:before{
   100% {
     transform: translateY(0);
   }
+}
+
+
+/**
+  Table footer css
+*/
+.tableFooter {
+  padding: 8px 0px;
+  width: 100%;
+  font-weight: 500;
+  text-align: left;
+  font-size: 16px;
+  color: #2c3e50;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tf-button {
+  background-color: transparent;
+  border: none;
+  padding: 7px 14px;
+  cursor: pointer;
+  margin-right: 4px;
+  margin-left: 4px;
+}
+
+.tf-activeButton {
+  color: #7949FF;
+}
+
+.tf-inactiveButton {
+  color: #FFF;
 }
