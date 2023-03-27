@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector,useDispatch } from 'react-redux'
 import moment from "moment";
 import Table from 'react-bootstrap/Table';
+import TableFooter from "./TableFooter";
 import { formatUnits } from '@ethersproject/units'
 import { RootState, AppDispatch } from "../../app/store";
 import { simpleContractAddress } from "../../contract";
@@ -13,6 +14,8 @@ import { useTotalSupply, useTotalMinted } from "../../hooks";
 import { ethers } from "ethers";
 import WLOG from "../../abi/WLOG.json";
 import { reportGetRequest } from "../../features/reportSlice";
+import useTable from "../../hooks/useTable";
+import ReportTable from "./ReportTable";
 
 
 function Home()  {
@@ -265,7 +268,7 @@ tokens is in turn tracked and verifiable on the blockchains.</p>
   const TransactionSection = () => {
     let swapTx = transactions.swapTxToday
     let redeemTx = transactions.redeemTxToday
-    let allTx = transactions.allTx 
+    let allTx = transactions.allTx
     
     return (
       <div className="width70 mv4h1">
@@ -280,27 +283,7 @@ tokens is in turn tracked and verifiable on the blockchains.</p>
           </div>
         </div>
         <div>
-          <Table striped bordered hover variant="dark">
-            <thead className="font-white">
-              <td>ACTION</td>
-              <td>DATE & TIME</td>
-              <td>AMOUNT (WLOG)</td>
-            </thead>
-            <tbody>
-              {allTx.map((tx:any) => {
-                if(tx.status === "COMPLETED") {
-                  let link = tx.transaction==="DEPOSIT" ? `https://polygonscan.com/tx/${tx.txidWLOGMint}` : `https://polygonscan.com/tx/${tx.txidWLOGTransfer}`
-                  return (
-                    <tr onClick={()=> window.open(link, "_blank")} className="pointer">
-                      <td>{tx.transaction==="DEPOSIT" ? "SWAP" : "REDEEM"}</td>
-                      <td>{moment(tx.createdAt).format('MMMM D, YYYY - h:mm:ss a')}</td>
-                      <td>{tx.transaction==="DEPOSIT" ? tx.twmAmount : tx.twrAmount}</td>
-                    </tr>
-                  )
-                }
-              })}
-            </tbody>
-          </Table>
+          <ReportTable data={transactions.allTx} rowsPerPage={20} />
         </div>
       </div>
     )

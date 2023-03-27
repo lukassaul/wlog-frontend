@@ -5,7 +5,7 @@ interface reportState {
     isGetReportSuccess: boolean,
     isGetReportFetching: boolean,
     errorGetReportMessage: string | null,
-    transactions: any | null
+    transactions: any | []
 }
 
 interface ValidationErrors {
