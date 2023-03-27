@@ -289,12 +289,12 @@ tokens is in turn tracked and verifiable on the blockchains.</p>
             <tbody>
               {allTx.map((tx:any) => {
                 if(tx.status === "COMPLETED") {
-                  let link = tx.transaction==="SWAP" ? `https://polygonscan.com/tx/${tx.txidWLOGMint}` : `https://polygonscan.com/tx/${tx.txidWLOGTransfer}`
+                  let link = tx.transaction==="DEPOSIT" ? `https://polygonscan.com/tx/${tx.txidWLOGMint}` : `https://polygonscan.com/tx/${tx.txidWLOGTransfer}`
                   return (
                     <tr onClick={()=> window.open(link, "_blank")} className="pointer">
-                      <td>{tx.transaction==="SWAP" ? "SWAP" : "REDEEM"}</td>
+                      <td>{tx.transaction==="DEPOSIT" ? "SWAP" : "REDEEM"}</td>
                       <td>{moment(tx.createdAt).format('MMMM D, YYYY - h:mm:ss a')}</td>
-                      <td>{tx.transaction==="SWAP" ? tx.twmAmount : tx.twrAmount}</td>
+                      <td>{tx.transaction==="DEPOSIT" ? tx.twmAmount : tx.twrAmount}</td>
                     </tr>
                   )
                 }
