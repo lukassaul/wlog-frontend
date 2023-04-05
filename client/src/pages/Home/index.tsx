@@ -145,21 +145,25 @@ tokens is in turn tracked and verifiable on the blockchains.</p>
                     {process.env.REACT_APP_LOGADDRESS}
                   </a></span>
                   </td>
-                  <td className="w-50 text  text-justify">
+                  <td className="w-50 text text-truncate">
+                    <p>Balance:</p>
+                    <p>{wlogBalance}</p>
+                  </td>
+                  {/* <td className="w-50 text  text-justify">
                     <p className="mrhalf">Wlog Address: </p>
                       <span><a href="https://polygonscan.com/token/0x89f8be64da35308260ba2d13d0d1e7fd80a3a210?a=0x0a46ecf048619c53eca2f969eec0ba071c9a827c" target="_blank" className="font-white">
                       {process.env.REACT_APP_WLOGADDRESS}
                     </a></span>
-                  </td>
+                  </td> */}
                 </tr>
-                <tr>
+                {/* <tr>
                   <td className="w-50 text text-truncate">
                     <span>Balance: {logBalance}</span>
                   </td>
                   <td className="w-50 text text-truncate">
                     <span>Balance: {wlogBalance}</span>
                   </td>
-                </tr>
+                </tr> */}
               </tbody>
             </table>
           </div>
