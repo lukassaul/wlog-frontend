@@ -8,10 +8,11 @@ import { PortisConnector } from '@usedapp/portis-connector'
 import { formatEther } from '@ethersproject/units'
 import { getDefaultProvider } from 'ethers'
 import {
-  BrowserRouter as Router,
-  Routes,
+  createBrowserRouter,
+  createRoutesFromElements,
+  Outlet,
   Route,
-  Navigate,
+  RouterProvider,
 } from "react-router-dom";
 import './App.css';
 import Wallet from './components/Wallet';
@@ -79,24 +80,54 @@ function App() {
     }
   }, [networkEnv])
 
-  return (
-    <DAppProvider config={process.env.REACT_APP_NETWORK === "POLYGON_MUMBAI" ? mumbai_config : polygon_config}>
-      <Router>
+  function Layout() {
+    return (
         <ScrollToTop>
           <div className={process.env.REACT_APP_THEME === "PURPLE" ? "App flex-col main_black" : "App flex-col main_green"}>
               <Header />
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/swap" element={<Swap />} />
-                <Route path="/redeem" element={<Redeem />} />
-                <Route path="/faqs" element={<Faq />} />
-              </Routes>
+              <Outlet />
               <Footer />
           </div>
         </ScrollToTop>
-      </Router>
-    </DAppProvider>
-  );
+    );
+  }
+
+  const router = createBrowserRouter([
+    {
+      element: <Layout/>,
+      children: [  
+        {
+          path: '/',
+          element: <Home />
+        },
+        {
+          path: '/swap',
+          element: <Swap />
+        },
+        {
+          path: '/redeem',
+          element: <Redeem />
+        },
+        {
+          path: '/faqs',
+          element: <Faq />
+        }
+      ]
+    }
+  ])
+  
+
+  return (
+      <DAppProvider config={process.env.REACT_APP_NETWORK === "POLYGON_MUMBAI" ? mumbai_config : polygon_config}>
+        
+        <div className={process.env.REACT_APP_THEME === "PURPLE" ? "App flex-col main_black" : "App flex-col main_green"}>
+            
+            <RouterProvider router={router} />
+            
+        </div>
+
+      </DAppProvider>
+    );
 }
 
 export default App;
