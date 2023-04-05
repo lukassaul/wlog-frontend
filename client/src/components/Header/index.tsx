@@ -70,11 +70,11 @@ function Header() {
                             Redeem
                         </NavLinks>
                     </NavItem>
-                    <NavItem>
+                    {/* <NavItem>
                         <NavLinks to='#' onClick={closeMobileMenu}>
                             {network?.network}
                         </NavLinks>
-                    </NavItem>
+                    </NavItem> */}
                 </NavMenu>
             </NavbarContainer>
         </Nav>
