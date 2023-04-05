@@ -14,6 +14,7 @@ import { AppDispatch, RootState } from "../../app/store";
 import { useDispatch, useSelector } from "react-redux";
 import { CheckLogTransactionAPI } from "../../api/logTrasactionChecker";
 import { useNavigate } from "react-router-dom";
+import usePrompt from "../Prompt";
 
 function SwapForm(props: any) {
     
@@ -216,6 +217,20 @@ function SwapForm(props: any) {
     //     setTimerEnd(true)
     // }, [countdownCompleted])
 
+
+
+    interface PromptProps {
+        when: boolean;
+        message: string;
+        beforeUnload?: boolean;
+    }
+
+    function Prompt({ when, message, ...props }: PromptProps) {
+        usePrompt(when ? message : false, props);
+        return null;
+    }
+
+
     return (
         <>
         {!timerEnd ?
@@ -233,6 +248,13 @@ function SwapForm(props: any) {
             :
             null 
         }
+
+        {timerEnd ? 
+            Prompt({ when: false, message: "Are you sure you want to leave the swap page?", beforeUnload: true }) 
+            : 
+            Prompt({ when: true, message: "Are you sure you want to leave the swap page?", beforeUnload: true })
+        }
+
         {!timerEnd || receiveTransfer ?    
             <form>
                 <SwapWrapper className={process.env.REACT_APP_THEME === "PURPLE" ? "purple_wood_section" : "green_wood_section"}>
