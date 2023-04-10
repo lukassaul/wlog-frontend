@@ -147,7 +147,7 @@ tokens is in turn tracked and verifiable on the blockchains.</p>
                   </td>
                   <td className="w-50 text text-truncate">
                     <p>Balance:</p>
-                    <p>{wlogBalance}</p>
+                    <p>{logBalance}</p>
                   </td>
                   {/* <td className="w-50 text  text-justify">
                     <p className="mrhalf">Wlog Address: </p>
