@@ -102,7 +102,7 @@ function Swap() {
                             <p className="text-center wordBreakWord mb0">WLOG contract address ({simpleContractAddress})</p>
                             <p className="text-center word-wrap">Import WLOG token to your meta mask wallet</p>
 
-                            <p className="font-blue">This transaction has a commision of 10% fee.</p>
+                            <p className="font-blue">This transaction has a commision of 2% fee.</p>
                             
                             <div>
                                 
