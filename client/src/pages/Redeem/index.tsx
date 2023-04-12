@@ -72,16 +72,30 @@ function Redeem() {
         <div className={process.env.REACT_APP_THEME === "PURPLE" ? "maincontainer flex-auto main_black" : "maincontainer flex-auto main_green"}>
             <div className="dashboard-container-no-pad tree_rings_bg">
                 <div className="width100 d-flex flex-column justify-content-center align-items-center">
-                    <div className="width70 d-flex flex-column justify-content-center">
-                        <div className="text-white justify-content-center">
-                            <div className="notificationContainer text-white">
-                                <p className="mb0">The maximum redeem amount is <span className="font-weight-bold">{maxRedeemAmount} WLOGs</span>.</p>
+                    
+                    <div className="flex-row-spacebetween">
+
+                        <div className="flex-center-col width50 text-white">
+                            <p className="mb0">The maximum redeem amount is <span className="font-weight-bold">{maxRedeemAmount} WLOGs</span>.</p>
+
+                            <p className="fs3em mb2">Transfer at your own risk.</p>
+
+                            <p className="text-center word-wrap">Please report any errors to <a href="https://discord.com/login?redirect_to=%2Fchannels%2F572007943600472066%2F925855127439556609" target="_blank">Woodcoin Discord</a></p>
+                            
+                        </div>
+
+                        <div className="text-white flex-center-col">
+                            <div className="notificationContainer text-white width90">
+                                <p className="text-center word-wrap mb0">Warning - Redeem and Swap prototypes are for test purposes only.</p>
                             </div>
                             <p className={process.env.REACT_APP_THEME === "PURPLE" ? 
-                                "font-weight-bold titlefs text-center purple_gradient_text" 
+                                "font-weight-bold titlefs text-center mb0 purple_gradient_text" 
                                 : 
-                                "font-weight-bold titlefs text-center"
+                                "font-weight-bold titlefs mb0 text-center"
                             }>Redeem</p>
+
+                            <p className="font-blue">A transaction fee of 0% will be deducted.</p>
+                            
                             
                             <div className="d-flex flex-column justify-content-center align-items-center">
                                 <div className="desc-container">
@@ -92,10 +106,12 @@ function Redeem() {
                                     }
                                 </div>
                             </div>
+                            
 
                             <p onClick={() => setModalShow(true)} style={{cursor: 'pointer', color: '#c1c1c1', textAlign: 'center'}}>
                                 Show Redeem instructional modal
                             </p>
+
                             {/* <button onClick={clearStorage}> Clear Storage</button> */}
 
                             <RedeemInstructionalModal
