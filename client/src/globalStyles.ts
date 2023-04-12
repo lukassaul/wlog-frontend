@@ -378,7 +378,7 @@ export const FormWraper = styled.div`
 export const WholeWrapper = styled.div`
     display: inline-block;
     width: 75%;
-    min-height: 510px;
+    min-height: 480px;
     max-width: 1000px;
     margin-bottom: 12px;
     //background-color: #fff;

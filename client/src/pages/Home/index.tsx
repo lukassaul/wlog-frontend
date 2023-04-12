@@ -216,7 +216,7 @@ tokens is in turn tracked and verifiable on the blockchains.</p>
                             className="community_img largeImgCommunity"
                           />
                           <div>
-                            <p className="font-white">"The handsome Pappa Flammy of <a href="https://www.youtube.com/watch?v=8oOS7uGY4nk" className="font-white" target="_blank">Flammable Maths fame.</a>"</p>
+                            <p className="font-white"><a href="https://www.youtube.com/watch?v=8oOS7uGY4nk" className="font-white" target="_blank">Flammable Maths</a> is a good place to learn about LOGs.</p>
                           </div>
                         </div>
                         <div className={process.env.REACT_APP_THEME === "PURPLE" ? "purple_gradient w25h280 flex-center-col g2 community" : "green_gradient w25h280 flex-center-col g2 community"}>
