@@ -73,12 +73,12 @@ function Redeem() {
             <div className="dashboard-container-no-pad tree_rings_bg">
                 <div className="width100 d-flex flex-column justify-content-center align-items-center">
                     
-                    <div className="flex-row-spacebetween">
+                    <div className="flex-row-spacebetween width100">
 
                         <div className="flex-center-col width50 text-white">
                             <p className="mb0">The maximum redeem amount is <span className="font-weight-bold">{maxRedeemAmount} WLOGs</span>.</p>
 
-                            <p className="fs3em mb2">Transfer at your own risk.</p>
+                            <p className="fs3em mb1">Transfer at your own risk.</p>
 
                             <p className="text-center word-wrap">Please report any errors to <a href="https://discord.com/login?redirect_to=%2Fchannels%2F572007943600472066%2F925855127439556609" target="_blank">Woodcoin Discord</a></p>
                             

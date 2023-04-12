@@ -88,7 +88,7 @@ function Swap() {
             <div className="dashboard-container  tree_rings_bg">
                 <div className="width100 d-flex flex-column justify-content-center align-items-center">
                     
-                    <div className="flex-row-spacebetween">
+                    <div className="flex-row-spacebetween width100">
 
                         <div className="flex-center-col width40 text-white">
                             <p className="mb0">The minimum swap is <span className="font-weight-bold">100 LOGs</span> and maximum is <span className="font-weight-bold">{maxSwapAmount} LOGs</span>.</p> 
