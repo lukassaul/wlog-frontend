@@ -269,6 +269,133 @@ tokens is in turn tracked and verifiable on the blockchains.</p>
   }
 
 
+  const CommunitySectionNew = () => {
+    return (
+      <div className={process.env.REACT_APP_THEME === "PURPLE" ? "purple_wood_section_bg dc mb4" : "green_wood_section_bg dc mb4"}>
+        <div className={process.env.REACT_APP_THEME === "PURPLE" ? "purple_dots_section" : "green_wood_section"}>
+            <div className="width70 d-flex flex-column justify-content-center">
+                <div>
+                  <p className="pct subtitlefs font-weight-bold font-white">JOIN THE COMMUNITY</p>
+                  <div className="flex-row-spacebetween">
+
+                  <div className="col-sm flex-col-spacearound-centersm mb2 g2">
+                      <div>
+                        <a href="https://hermesus.com/" target="_blank" className="anchorNoStyle">
+                          <img
+                            src="https://res.cloudinary.com/dba8ifej6/image/upload/v1689585584/comm_hermesus_qgqhl2.png"
+                            className="community_img imgSize240"
+                          />
+                        </a>
+                      </div>
+                      <div>
+                        <a href="https://vtscc.org/" target="_blank">
+                          <img
+                            src={process.env.REACT_APP_THEME === "PURPLE" ? "https://res.cloudinary.com/dba8ifej6/image/upload/v1689585583/comm_vermont_c2zlej.png" : "https://res.cloudinary.com/dba8ifej6/image/upload/v1674620116/vermont_logo_white_vmdpcb.png"}
+                            className="community_img"
+                          />
+                        </a>
+                      </div>
+                      <div>
+                        <a href="https://woodcoin.org/" target="_blank">
+                          <img
+                            src="https://res.cloudinary.com/dba8ifej6/image/upload/v1689585583/comm_woodcoin_ejnw5d.png"
+                            className="community_img"
+                          />
+                        </a>
+                      </div>
+                      <div>
+                        <a href="https://twigchain.com/" target="_blank" className="anchorNoStyle">
+                          <img
+                            src="https://res.cloudinary.com/dba8ifej6/image/upload/v1689585583/comm_twigchain_utwnvv.png"
+                            className="community_img"
+                          />
+                        </a>
+                      </div>
+                    </div>
+
+                    <div className="col-sm flex-col-spacearound-centersm mb2 g2">
+                      
+                      <div>
+                        <img
+                          src="/papa_flammy.png"
+                          className="community_img largeImgCommunity"
+                        />
+                        <div>
+                          <p className="font-white">
+                            <a href="https://www.youtube.com/watch?v=8oOS7uGY4nk" className="font-white" target="_blank">
+                              Flammable Maths
+                            </a> is a good place to learn about LOGs.
+                          </p>
+                        </div>
+                      </div>
+                      <div>
+                        <img
+                          src="https://res.cloudinary.com/dba8ifej6/image/upload/v1689585584/comm_mathologer_m5z0tn.png"
+                          className="community_img largeImgCommunity"
+                        />
+                        <div>
+                          <p className="font-white">
+                            <a href="https://www.youtube.com/watch?v=vQE6-PLcGwU" className="font-white" target="_blank">
+                              Mathologer
+                            </a>
+                          </p>
+                        </div>
+                      </div>
+                      <div>
+                        <a href="https://woodcoin.info/" target="_blank" className="anchorNoStyle">
+                          <img
+                            src="https://res.cloudinary.com/dba8ifej6/image/upload/v1689585583/comm_woodcoin_info_ufmsqf.png"
+                            className="community_img"
+                          />
+                        </a>
+                      </div>
+                    </div>
+
+                    <div className="col-sm flex-col-spacearound-centersm mb2 g2">
+                      <div>
+                        <a href="https://mylogstore.com/" target="_blank" className="anchorNoStyle">
+                          <img
+                            src="https://res.cloudinary.com/dba8ifej6/image/upload/v1689585584/comm_mylogstore_j7xm1u.png"
+                            className="community_img"
+                          />
+                        </a>
+                      </div>
+                      <div>
+                        <a href="https://amar.bornofsnails.net" target="_blank" className="anchorNoStyle">
+                          <img 
+                            src="https://res.cloudinary.com/dba8ifej6/image/upload/v1689585584/comm_amaranthine_qkhvom.png"
+                            className="community_img"
+                          />
+                        </a>
+                      </div>
+                      
+                      <div>
+                        <a href="http://movoda.net/" target="_blank">
+                          <img
+                            src="https://res.cloudinary.com/dba8ifej6/image/upload/v1689585584/comm_movoda_lsizjk.png"
+                            className="community_img"
+                          />
+                        </a>
+                      </div>
+                      <div>
+                        <a href="https://cielo.finance/" target="_blank">
+                          <img
+                            src="https://res.cloudinary.com/dba8ifej6/image/upload/v1689585584/comm_cielo_quq39a.png"
+                            className="community_img"
+                          />
+                        </a>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    )
+  }
+
+
   const TransactionSection = () => {
     let swapTx = transactions.swapTxToday
     let redeemTx = transactions.redeemTxToday
@@ -276,7 +403,7 @@ tokens is in turn tracked and verifiable on the blockchains.</p>
     
     return (
       <div className="width70 mv4h1">
-        <div className="flex-row-spacearound mb2">
+        <div className="flex-col-spacearound mb2">
           <div>
             <p className="fs15em font-white">Number of Swap transactions today</p>
             <p className="fs2em font-yellow">{swapTx.length > 0 ? swapTx.lenght : "No transactions"}</p>
@@ -310,7 +437,7 @@ tokens is in turn tracked and verifiable on the blockchains.</p>
           </div>
         </div>
 
-        {CommunitySection()}
+        {CommunitySectionNew()}
       </div>
       {isGetReportSuccess && transactions.allTx.length > 0 ? 
         <div className="dashboard-container">

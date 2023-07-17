@@ -481,6 +481,18 @@ body {
   background-color: #141d32;
 }
 
+.purple_dots_section {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em;
+  background-image: url("https://res.cloudinary.com/dba8ifej6/image/upload/v1689582585/wlog_dots_n2bann.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+}
+
 .purple_wood_section {
   display: flex;
   flex: 1;
@@ -591,6 +603,13 @@ body {
 .flex-row-spacearound-centersm {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.flex-col-spacearound-centersm {
+  display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
