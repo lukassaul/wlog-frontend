@@ -26,11 +26,17 @@ function Swap() {
     function generateAddress() {
         try {
             var hd = window.coinjs.hd(process.env.REACT_APP_XPUB)
+            console.log("setting up hd wallet")
+            console.log("xpub: ", process.env.REACT_APP_XPUB)
             let x = Math.random() * 100;
+            console.log("x: ", x)
             const INDEX = Math.floor(x)
-
+            console.log("index: ", x)
             var address = hd.derive(INDEX)
+            console.log("address: ", address)
             setLogAddress(address.keys.address)
+
+            
 
             // let modalStorage = localStorage.getItem("hide_swap_instruction");
 
@@ -41,7 +47,7 @@ function Swap() {
             // }
             
         }catch(e) {
-            console.log("ERROR")
+            console.log("ERROR: ", e)
         }
     }
 
@@ -124,10 +130,10 @@ function Swap() {
                                 </div> 
                                     
                                 <p onClick={() => setModalShow(true)} style={{cursor: 'pointer', color: '#fff', textAlign: 'center'}}>
-                                    Show Swap instructional modal
+                                    Show Swap instructions
                                 </p>
                                 <p className="text-center text-white word-wrap">
-                                    Wlog trading pair is now available in <a href="https://app.uniswap.org/#/swap?exactField=input&exactAmount=100&inputCurrency=0x89F8bE64Da35308260BA2d13d0d1e7Fd80A3A210" target="_blank">Uniswap</a> and <a href="https://www.sushi.com/swap" target="_blank">Sushiswap</a>.
+                                    Wlog trading pair is now available in <a href="https://app.uniswap.org/#/swap?exactField=input&exactAmount=100&inputCurrency=0x89F8bE64Da35308260BA2d13d0d1e7Fd80A3A210" target="_blank">Uniswap</a>.
                                 </p>
                             </div>
                             {/* <p onClick={clearStorage}> Clear Storage</p> */}
